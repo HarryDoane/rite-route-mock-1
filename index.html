@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rite Route — Technology-Driven Logistics | Supply Chain Solutions</title>
+  <title>Rite Route — Over the Road Technology-Driven Logistics</title>
   <meta name="description" content="Rite Route combines cutting-edge TMS technology with five decades of trucking experience. FTL, LTL, 4PL, expedited and final-mile logistics across Canada, the USA and Mexico.">
   <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -30,182 +33,133 @@
 
 <main>
 
-  <!-- Hero -->
+  <!-- Hero: truck photo + freight quote widget -->
   <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="kicker" style="color:#ff5a60">Supply Chain Solutions</span>
+        <h1>Over the Road<br>Technology-Driven<br><span class="accent">Logistics</span></h1>
+        <p class="lede">Cutting-edge TMS software backed by five decades of trucking experience — for every shipment, at every size, 24/7/365.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-red" href="contact.html">Request a Quote</a>
+          <a class="btn btn-outline-light" href="carriers.html">Become a Partner Carrier</a>
+        </div>
+      </div>
+
+      <form class="quote-widget" data-demo novalidate aria-label="Freight quote">
+        <h2>Freight Quote</h2>
+        <p class="sub">Select full truckload (FTL) or less than full (LTL).</p>
+        <div class="mode-switch" role="radiogroup" aria-label="Shipment type">
+          <input type="radio" id="mode-ftl" name="mode" value="ftl" checked>
+          <label for="mode-ftl">FTL <small>Full Truckload</small></label>
+          <input type="radio" id="mode-ltl" name="mode" value="ltl">
+          <label for="mode-ltl">LTL <small>Less than Full</small></label>
+        </div>
+        <div class="form-grid">
+          <div class="field full">
+            <label for="q-from">From <span class="req">*</span></label>
+            <input id="q-from" name="from" type="text" inputmode="numeric" placeholder="Zip / Postal Code" required>
+          </div>
+          <div class="field full">
+            <label for="q-to">To <span class="req">*</span></label>
+            <input id="q-to" name="to" type="text" inputmode="numeric" placeholder="Zip / Postal Code" required>
+          </div>
+          <div class="field full">
+            <label for="q-date">Pick up</label>
+            <input id="q-date" name="pickup" type="date">
+          </div>
+          <div class="full">
+            <button class="btn btn-red" type="submit">Get My Quote</button>
+            <p class="form-success" role="status">Got it — we're pricing your lane and will be right back to you.</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Feature trio -->
+  <section>
     <div class="container">
-      <span class="kicker" style="color:#ff5a60">Supply Chain Solutions</span>
-      <h1>Over the road, <span class="accent">technology-driven</span> logistics.</h1>
-      <p class="lede">We pair a cutting-edge transportation management platform with five decades of trucking experience — so every shipment moves smarter, whether it's a single skid or a full truckload.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-red" href="contact.html">Request a Quote</a>
-        <a class="btn btn-outline-light" href="carriers.html">Become a Partner Carrier</a>
+      <div class="feature-trio">
+        <div class="feature reveal">
+          <img src="assets/icon-disruptive-tech.png" alt="" width="84" height="84">
+          <h3>Disruptive Technology</h3>
+          <p>Leader in the evolution of the supply chain by combining cutting-edge TMS software with five decades of industry experience.</p>
+        </div>
+        <div class="feature reveal">
+          <img src="assets/icon-solution-products.png" alt="" width="84" height="84">
+          <h3>Solution-Based Products</h3>
+          <p>Services that don't depend on your shipment size or mode — but on the competitive advantage we give your company.</p>
+        </div>
+        <div class="feature reveal">
+          <img src="assets/icon-single-contact.png" alt="" width="84" height="84">
+          <h3>Single Point of Contact</h3>
+          <p>Personalized concierge service: one consistent contact who is always a phone call, text or email away, 24/7/365.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Stat band -->
-  <div class="stats">
-    <div class="container stats-grid">
-      <div class="stat reveal">
-        <span class="num">45,000<em>+</em></span>
-        <span class="label">Connected fleets</span>
-      </div>
-      <div class="stat reveal">
-        <span class="num">50<em>+</em></span>
-        <span class="label">Years of experience</span>
-      </div>
-      <div class="stat reveal">
-        <span class="num">24/7<em>/365</em></span>
-        <span class="label">Live support</span>
-      </div>
-      <div class="stat reveal">
-        <span class="num">3</span>
-        <span class="label">Countries served</span>
-      </div>
+  <!-- Advantage strip -->
+  <div class="advantage">
+    <div class="container advantage-inner reveal">
+      <h2>Your <em>Competitive</em> Advantage</h2>
+      <a class="btn btn-outline-dark" href="contact.html">Request a Quote</a>
     </div>
   </div>
 
-  <!-- Why Rite Route -->
-  <section>
+  <!-- Services (signature red band) -->
+  <section class="services-band">
     <div class="container">
       <div class="section-head center reveal">
-        <span class="kicker">Why Rite Route</span>
-        <h2>Logistics finally caught up with technology</h2>
-        <p>Technology transformed how we hail rides, book hotels and shop. Freight is next — and we're leading the change.</p>
+        <span class="kicker">Services</span>
+        <h2>Cutting-edge logistics solutions</h2>
+        <p>Technology and solutions that modernize the freight brokerage industry.</p>
       </div>
-      <div class="grid cols-4">
-        <div class="card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          </div>
-          <h3>Real-time tracking</h3>
-          <p>Complete visibility across 45,000+ connected fleets. Watch your freight move in real time, from pickup to proof of delivery.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.5 4.5l2.8 2.8M16.7 16.7l2.8 2.8M19.5 4.5l-2.8 2.8M7.3 16.7l-2.8 2.8"/></svg>
-          </div>
-          <h3>End-to-end AI</h3>
-          <p>Automation across the full shipment lifecycle eliminates the human error that slows freight down — and drives your service up.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="2" y="13" width="4" height="7" rx="1.5"/><rect x="18" y="13" width="4" height="7" rx="1.5"/><path d="M20 20a4 4 0 0 1-4 2h-2"/></svg>
-          </div>
-          <h3>One point of contact</h3>
-          <p>A single dedicated contact who's a call, text or email away — 24 hours a day, 365 days a year. No queues, no runaround.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M15 8h5v5"/></svg>
-          </div>
-          <h3>Live market rates</h3>
-          <p>Instant pricing built on up-to-the-minute market conditions — so you always pay what the market says, not what a middleman does.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="soft">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="kicker">What we move</span>
-        <h2>Solutions for every shipment size</h2>
-        <p>FTL or LTL, one skid or one hundred — our products are built around your freight, not the other way around.</p>
-      </div>
-      <div class="grid cols-3">
-        <div class="card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M10.5 6.8L6 16.7M13.5 6.8L18 16.7M7.5 19h9"/></svg>
-          </div>
+      <div class="service-grid">
+        <div class="service reveal">
+          <img src="assets/svc-4pl.png" alt="" width="96" height="96">
           <h3>4PL</h3>
-          <p>Full supply-chain management under one roof. We run your logistics network so you can run your business.</p>
+          <p>Make your supply chain a variable cost by implementing our disruptive technology to eliminate fixed costs and 3PL markups.</p>
         </div>
-        <div class="card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h13v8H1zM14 10h4l3 3v3h-7z"/><circle cx="5.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg>
-          </div>
+        <div class="service reveal">
+          <img src="assets/svc-wholesale.png" alt="" width="96" height="96">
           <h3>Wholesale</h3>
-          <p>Direct access to wholesale trucking capacity — competitive rates without the traditional brokerage markup.</p>
+          <p>Over five decades of industry experience gives us unique access to wholesale trucking capacity and rates — passed on to you with no 3PL markup.</p>
         </div>
-        <div class="card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>
-          </div>
+        <div class="service reveal">
+          <img src="assets/svc-spot-market.png" alt="" width="96" height="96">
           <h3>Spot Market</h3>
-          <p>Real-time spot rates that reflect the market as it is right now — not last quarter's contract.</p>
+          <p>Rates change by the minute in the North American supply chain. Our technology instantly gives you access to the cheapest rates, 24/7/365.</p>
         </div>
-        <div class="card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg>
-          </div>
+        <div class="service reveal">
+          <img src="assets/svc-expedited.png" alt="" width="96" height="96">
           <h3>Expedited</h3>
-          <p>When the clock is the constraint: time-critical capacity with door-to-door urgency and live updates.</p>
+          <p>With access to over 45,000 qualified carriers, our TMS guarantees we can always find a truck to move your urgent shipments.</p>
         </div>
-        <div class="card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></svg>
-          </div>
+        <div class="service reveal">
+          <img src="assets/svc-final-mile.png" alt="" width="96" height="96">
           <h3>Canadian Final Mile</h3>
-          <p>Coast-to-coast final-mile delivery in Canada — the last leg handled with the same visibility as the first.</p>
+          <p>Crowdsourced, AI-based technology connects you to networks of local couriers and independent contractors delivering directly to your customers.</p>
         </div>
-        <div class="card reveal">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
-          </div>
+        <div class="service reveal">
+          <img src="assets/svc-relocation.png" alt="" width="96" height="96">
           <h3>Relocation</h3>
-          <p>Managed moves for offices, facilities and equipment — planned, tracked and delivered without surprises.</p>
+          <p>Partnerships with commercial, residential and automotive movers provide best-in-class pricing for your professional or personal moving needs.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Coverage -->
-  <section>
-    <div class="container split">
-      <div class="reveal">
-        <span class="kicker">Coverage</span>
-        <h2>Proudly serving Canada, the USA and Mexico</h2>
-        <p>From our head office in Etobicoke, Ontario, we move freight across all of North America — cross-border expertise included, paperwork and all.</p>
-        <p>Wherever your lane runs, our connected carrier network is already there.</p>
-        <div class="hero-ctas" style="margin-top:2rem">
-          <a class="btn btn-red" href="shippers.html">For Shippers</a>
-          <a class="btn btn-outline-dark" href="carriers.html">For Carriers</a>
-        </div>
-      </div>
-      <div class="visual reveal">
-        <div class="coverage-panel">
-          <svg viewBox="0 0 460 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Route network connecting Canada, the USA and Mexico">
-            <path d="M60 70 C 140 40, 240 60, 330 55" stroke="#ffffff" stroke-opacity="0.15" stroke-width="2" stroke-dasharray="3 8"/>
-            <path d="M60 70 C 90 140, 160 170, 250 165" stroke="#d71920" stroke-width="2" stroke-dasharray="3 8"/>
-            <path d="M250 165 C 300 200, 330 240, 350 265" stroke="#d71920" stroke-width="2" stroke-dasharray="3 8"/>
-            <path d="M330 55 C 300 110, 280 140, 250 165" stroke="#ffffff" stroke-opacity="0.15" stroke-width="2" stroke-dasharray="3 8"/>
-            <circle cx="60" cy="70" r="7" fill="#d71920"/>
-            <circle cx="60" cy="70" r="13" stroke="#d71920" stroke-opacity="0.35" stroke-width="2"/>
-            <circle cx="330" cy="55" r="5" fill="#ffffff" fill-opacity="0.8"/>
-            <circle cx="250" cy="165" r="7" fill="#d71920"/>
-            <circle cx="250" cy="165" r="13" stroke="#d71920" stroke-opacity="0.35" stroke-width="2"/>
-            <circle cx="350" cy="265" r="7" fill="#d71920"/>
-            <circle cx="350" cy="265" r="13" stroke="#d71920" stroke-opacity="0.35" stroke-width="2"/>
-            <text x="80" y="64" fill="#ffffff" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700">Canada</text>
-            <text x="345" y="48" fill="#ffffff" fill-opacity="0.75" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="13">Montréal</text>
-            <text x="270" y="160" fill="#ffffff" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700">USA</text>
-            <text x="285" y="270" fill="#ffffff" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="15" font-weight="700" text-anchor="end">Mexico</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA band -->
-  <section class="cta-band">
+  <!-- How can we help -->
+  <section class="help-row">
     <div class="container reveal">
-      <h2>Your competitive advantage starts here.</h2>
-      <p>Get a real-time quote in minutes — and a single point of contact for everything after.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-white" href="contact.html">Request a Quote</a>
-        <a class="btn btn-outline-light" href="tel:+16474784921">Call (647) 478-4921</a>
+      <h2>How can we help?</h2>
+      <div class="help-actions">
+        <a class="btn btn-dark" href="tel:+16474784921">Call Us</a>
+        <a class="btn btn-dark" href="mailto:ship@riteroute.ca">Email Us</a>
+        <a class="btn btn-red" href="contact.html">Request a Quote</a>
+        <a class="btn btn-outline-dark" href="carriers.html">Become a Partner Carrier</a>
       </div>
     </div>
   </section>
@@ -215,15 +169,10 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <img src="assets/favicon.png" alt="">
-          <div class="wordmark">
-            <b>Rite<span>Route</span></b>
-            <small>Supply Chain Solutions</small>
-          </div>
-        </div>
-        <p class="footer-tag">Technology-driven logistics, proudly serving Canada, the USA and Mexico.</p>
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Rite Route Supply Chain Solutions">
+        <p class="footer-tag">Your competitive advantage — technology-driven logistics for all of North America.</p>
+        <p class="footer-flags"><img src="assets/flags-coverage.png" alt="Proudly serving Canada, the USA and Mexico"></p>
       </div>
       <div>
         <h4>Company</h4>
