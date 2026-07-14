@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rite Route — Over the Road Technology-Driven Logistics</title>
-  <meta name="description" content="Rite Route combines cutting-edge TMS technology with five decades of trucking experience. FTL, LTL, 4PL, expedited and final-mile logistics across Canada, the USA and Mexico.">
+  <title>Rite Route — Freight, Run Like Mission Control</title>
+  <meta name="description" content="Rite Route is the freight command center: real-time visibility across 45,000+ fleets, live market rates, and a single point of contact 24/7/365 across Canada, the USA and Mexico.">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/futuristic.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html"><img src="assets/logo.png" alt="Rite Route Supply Chain Solutions"></a>
+    <a class="brand" href="index.html">
+      <img src="assets/favicon.png" alt="">
+      <span class="wordmark">
+        <b>Rite<span>Route</span></b>
+        <small>Supply Chain OS</small>
+      </span>
+    </a>
     <nav class="site-nav" aria-label="Main navigation">
       <a href="index.html" aria-current="page">Home</a>
       <a href="shippers.html">Shippers</a>
@@ -24,7 +30,7 @@
       <a href="news.html">News</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <a class="btn btn-red header-cta" href="contact.html">Request a Quote</a>
+    <a class="btn btn-red header-cta" href="contact.html">Request Quote</a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -33,133 +39,224 @@
 
 <main>
 
-  <!-- Hero: truck photo + freight quote widget -->
+  <!-- Hero: mission control -->
   <section class="hero">
+    <div class="grid-bg" aria-hidden="true"></div>
     <div class="container hero-grid">
       <div>
-        <span class="kicker" style="color:#ff5a60">Supply Chain Solutions</span>
-        <h1>Over the Road<br>Technology-Driven<br><span class="accent">Logistics</span></h1>
-        <p class="lede">Cutting-edge TMS software backed by five decades of trucking experience — for every shipment, at every size, 24/7/365.</p>
+        <span class="kicker">Supply Chain Solutions</span>
+        <h1>Freight, run like <span class="accent">mission control</span><span class="cursor" aria-hidden="true"></span></h1>
+        <p class="lede">One platform, 45,000+ connected fleets, five decades of trucking instinct. Every shipment tracked, priced and dispatched in real time — across Canada, the USA and Mexico.</p>
         <div class="hero-ctas">
           <a class="btn btn-red" href="contact.html">Request a Quote</a>
-          <a class="btn btn-outline-light" href="carriers.html">Become a Partner Carrier</a>
+          <a class="btn btn-ghost" href="carriers.html">Join the Network</a>
         </div>
       </div>
 
-      <form class="quote-widget" data-demo novalidate aria-label="Freight quote">
-        <h2>Freight Quote</h2>
-        <p class="sub">Select full truckload (FTL) or less than full (LTL).</p>
-        <div class="mode-switch" role="radiogroup" aria-label="Shipment type">
-          <input type="radio" id="mode-ftl" name="mode" value="ftl" checked>
-          <label for="mode-ftl">FTL <small>Full Truckload</small></label>
-          <input type="radio" id="mode-ltl" name="mode" value="ltl">
-          <label for="mode-ltl">LTL <small>Less than Full</small></label>
-        </div>
-        <div class="form-grid">
-          <div class="field full">
-            <label for="q-from">From <span class="req">*</span></label>
-            <input id="q-from" name="from" type="text" inputmode="numeric" placeholder="Zip / Postal Code" required>
-          </div>
-          <div class="field full">
-            <label for="q-to">To <span class="req">*</span></label>
-            <input id="q-to" name="to" type="text" inputmode="numeric" placeholder="Zip / Postal Code" required>
-          </div>
-          <div class="field full">
-            <label for="q-date">Pick up</label>
-            <input id="q-date" name="pickup" type="date">
-          </div>
-          <div class="full">
-            <button class="btn btn-red" type="submit">Get My Quote</button>
-            <p class="form-success" role="status">Got it — we're pricing your lane and will be right back to you.</p>
-          </div>
-        </div>
-      </form>
-    </div>
-  </section>
+      <div class="panel hud" aria-label="Live network status (illustrative)">
+        <span class="corner tl" aria-hidden="true"></span>
+        <span class="corner tr" aria-hidden="true"></span>
+        <span class="corner bl" aria-hidden="true"></span>
+        <span class="corner br" aria-hidden="true"></span>
 
-  <!-- Feature trio -->
-  <section>
-    <div class="container">
-      <div class="feature-trio">
-        <div class="feature reveal">
-          <img src="assets/icon-disruptive-tech.png" alt="" width="84" height="84">
-          <h3>Disruptive Technology</h3>
-          <p>Leader in the evolution of the supply chain by combining cutting-edge TMS software with five decades of industry experience.</p>
+        <div class="panel-head">
+          <span class="mono"><span class="status-dot" aria-hidden="true"></span>Live Network</span>
+          <span class="mono faint" id="net-clock">00:00:00 UTC</span>
         </div>
-        <div class="feature reveal">
-          <img src="assets/icon-solution-products.png" alt="" width="84" height="84">
-          <h3>Solution-Based Products</h3>
-          <p>Services that don't depend on your shipment size or mode — but on the competitive advantage we give your company.</p>
+
+        <div class="panel-body">
+          <svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated freight routes connecting Toronto, Chicago, Dallas, Monterrey and Montréal">
+            <path class="route-line" d="M96 74 C 160 96, 200 128, 236 142"/>
+            <path class="route-line" d="M236 142 C 280 176, 320 208, 356 224"/>
+            <path class="route-line alt" d="M96 74 C 210 52, 300 58, 390 66"/>
+            <path class="route-line alt" d="M390 66 C 340 118, 290 132, 236 142"/>
+
+            <circle class="node-ring" cx="96" cy="74" r="12"/>
+            <circle class="node" cx="96" cy="74" r="5"/>
+            <circle class="node-ring" cx="236" cy="142" r="12"/>
+            <circle class="node" cx="236" cy="142" r="5"/>
+            <circle class="node-ring" cx="356" cy="224" r="12"/>
+            <circle class="node" cx="356" cy="224" r="5"/>
+            <circle class="node" cx="390" cy="66" r="4" opacity="0.7"/>
+
+            <text class="net-label bright" x="110" y="66">TOR — Toronto</text>
+            <text class="net-value" x="110" y="82">HUB · ONLINE</text>
+            <text class="net-label bright" x="250" y="134">CHI — Chicago</text>
+            <text class="net-value" x="250" y="150">ETA 04:12</text>
+            <text class="net-label bright" x="268" y="232">MTY — Monterrey</text>
+            <text class="net-value" x="268" y="248">CROSS-BORDER</text>
+            <text class="net-label" x="322" y="52">YUL — Montréal</text>
+          </svg>
         </div>
-        <div class="feature reveal">
-          <img src="assets/icon-single-contact.png" alt="" width="84" height="84">
-          <h3>Single Point of Contact</h3>
-          <p>Personalized concierge service: one consistent contact who is always a phone call, text or email away, 24/7/365.</p>
+
+        <div class="net-readouts">
+          <div>
+            <span class="mono faint">Connected fleets</span>
+            <span class="val"><em>45,012</em></span>
+          </div>
+          <div>
+            <span class="mono faint">Support window</span>
+            <span class="val">24/7<em>/365</em></span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Advantage strip -->
-  <div class="advantage">
-    <div class="container advantage-inner reveal">
-      <h2>Your <em>Competitive</em> Advantage</h2>
-      <a class="btn btn-outline-dark" href="contact.html">Request a Quote</a>
+  <!-- Rate ticker (illustrative) -->
+  <div class="ticker" aria-label="Sample lane rates (illustrative)">
+    <div class="ticker-track">
+      <span class="tick-item"><b>TOR → CHI</b> FTL DRY <span class="up">▲ LIVE</span></span>
+      <span class="tick-item"><b>YYZ → JFK</b> EXPEDITED <span class="up">02:40 PICKUP</span></span>
+      <span class="tick-item"><b>MTL → BOS</b> LTL 6 SKIDS <span class="up">QUOTED 38S</span></span>
+      <span class="tick-item"><b>VAN → SEA</b> REEFER <span class="up">▲ CAPACITY</span></span>
+      <span class="tick-item"><b>TOR → MEX</b> CROSS-BORDER <span class="up">DOCS AUTO</span></span>
+      <span class="tick-item"><b>CGY → DEN</b> FLATBED <span class="up">MATCHED</span></span>
+      <span class="tick-item"><b>TOR → CHI</b> FTL DRY <span class="up">▲ LIVE</span></span>
+      <span class="tick-item"><b>YYZ → JFK</b> EXPEDITED <span class="up">02:40 PICKUP</span></span>
+      <span class="tick-item"><b>MTL → BOS</b> LTL 6 SKIDS <span class="up">QUOTED 38S</span></span>
+      <span class="tick-item"><b>VAN → SEA</b> REEFER <span class="up">▲ CAPACITY</span></span>
+      <span class="tick-item"><b>TOR → MEX</b> CROSS-BORDER <span class="up">DOCS AUTO</span></span>
+      <span class="tick-item"><b>CGY → DEN</b> FLATBED <span class="up">MATCHED</span></span>
     </div>
   </div>
 
-  <!-- Services (signature red band) -->
-  <section class="services-band">
+  <!-- Metrics -->
+  <div class="metrics">
     <div class="container">
-      <div class="section-head center reveal">
-        <span class="kicker">Services</span>
-        <h2>Cutting-edge logistics solutions</h2>
-        <p>Technology and solutions that modernize the freight brokerage industry.</p>
+      <div class="metrics-grid">
+        <div class="metric reveal">
+          <span class="num"><em data-count="45000" data-suffix="+">0</em></span>
+          <span class="label">Connected fleets</span>
+        </div>
+        <div class="metric reveal">
+          <span class="num"><span data-count="50" data-suffix="+">0</span></span>
+          <span class="label">Years in trucking</span>
+        </div>
+        <div class="metric reveal">
+          <span class="num">24/7<em>/365</em></span>
+          <span class="label">Human support</span>
+        </div>
+        <div class="metric reveal">
+          <span class="num"><span data-count="3">0</span></span>
+          <span class="label">Countries served</span>
+        </div>
       </div>
-      <div class="service-grid">
-        <div class="service reveal">
-          <img src="assets/svc-4pl.png" alt="" width="96" height="96">
+    </div>
+  </div>
+
+  <!-- Capabilities bento -->
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Capabilities</span>
+        <h2>Every mode. One console.</h2>
+        <p>Solution-based products independent of shipment size — FTL or LTL, planned or urgent, one skid or a hundred trucks.</p>
+      </div>
+
+      <div class="bento">
+        <div class="tile w2 tile-glow reveal">
+          <span class="t-code">SYS.01 / VISIBILITY</span>
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+          </div>
+          <h3>Real-time tracking</h3>
+          <p>Complete visibility across 45,000+ connected fleets. Watch freight move live from pickup to proof of delivery — no check calls, no black holes. End-to-end AI removes the human error that slows freight down.</p>
+        </div>
+
+        <div class="tile reveal">
+          <span class="t-code">SVC.01</span>
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M10.5 6.8L6 16.7M13.5 6.8L18 16.7M7.5 19h9"/></svg>
+          </div>
           <h3>4PL</h3>
-          <p>Make your supply chain a variable cost by implementing our disruptive technology to eliminate fixed costs and 3PL markups.</p>
+          <p>Make your supply chain a variable cost — no fixed costs, no 3PL markups.</p>
         </div>
-        <div class="service reveal">
-          <img src="assets/svc-wholesale.png" alt="" width="96" height="96">
+
+        <div class="tile reveal">
+          <span class="t-code">SVC.02</span>
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h13v8H1zM14 10h4l3 3v3h-7z"/><circle cx="5.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg>
+          </div>
           <h3>Wholesale</h3>
-          <p>Over five decades of industry experience gives us unique access to wholesale trucking capacity and rates — passed on to you with no 3PL markup.</p>
+          <p>Direct wholesale trucking capacity, passed to you with no markup.</p>
         </div>
-        <div class="service reveal">
-          <img src="assets/svc-spot-market.png" alt="" width="96" height="96">
-          <h3>Spot Market</h3>
-          <p>Rates change by the minute in the North American supply chain. Our technology instantly gives you access to the cheapest rates, 24/7/365.</p>
+
+        <div class="tile reveal">
+          <span class="t-code">SVC.03</span>
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+          </div>
+          <h3>Spot market</h3>
+          <p>Rates change by the minute. Get the cheapest, 24/7/365.</p>
         </div>
-        <div class="service reveal">
-          <img src="assets/svc-expedited.png" alt="" width="96" height="96">
+
+        <div class="tile reveal">
+          <span class="t-code">SVC.04</span>
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg>
+          </div>
           <h3>Expedited</h3>
-          <p>With access to over 45,000 qualified carriers, our TMS guarantees we can always find a truck to move your urgent shipments.</p>
+          <p>45,000 qualified carriers means there's always a truck for urgent freight.</p>
         </div>
-        <div class="service reveal">
-          <img src="assets/svc-final-mile.png" alt="" width="96" height="96">
-          <h3>Canadian Final Mile</h3>
-          <p>Crowdsourced, AI-based technology connects you to networks of local couriers and independent contractors delivering directly to your customers.</p>
+
+        <div class="tile reveal">
+          <span class="t-code">SVC.05</span>
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></svg>
+          </div>
+          <h3>Canadian final mile</h3>
+          <p>Crowdsourced courier networks delivering direct to your customers.</p>
         </div>
-        <div class="service reveal">
-          <img src="assets/svc-relocation.png" alt="" width="96" height="96">
+
+        <div class="tile reveal">
+          <span class="t-code">SVC.06</span>
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
+          </div>
           <h3>Relocation</h3>
-          <p>Partnerships with commercial, residential and automotive movers provide best-in-class pricing for your professional or personal moving needs.</p>
+          <p>Commercial, residential and automotive moves at best-in-class pricing.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How can we help -->
-  <section class="help-row">
+  <!-- Protocol -->
+  <section class="protocol">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Protocol</span>
+        <h2>Three steps to lift-off</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="s-num">STEP / 01</span>
+          <h3>Quote in real time</h3>
+          <p>Send your lane and freight profile. Live market pricing comes back in minutes — built on up-to-the-minute conditions, not last year's contract.</p>
+        </div>
+        <div class="step reveal">
+          <span class="s-num">STEP / 02</span>
+          <h3>Match &amp; dispatch</h3>
+          <p>Our TMS matches your shipment across 45,000+ connected fleets and dispatches the right truck — FTL, LTL, expedited or final mile.</p>
+        </div>
+        <div class="step reveal">
+          <span class="s-num">STEP / 03</span>
+          <h3>Track to touchdown</h3>
+          <p>Real-time visibility to proof of delivery, with one human who knows your freight a call, text or email away — 24/7/365.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
     <div class="container reveal">
-      <h2>How can we help?</h2>
-      <div class="help-actions">
-        <a class="btn btn-dark" href="tel:+16474784921">Call Us</a>
-        <a class="btn btn-dark" href="mailto:ship@riteroute.ca">Email Us</a>
+      <span class="kicker" style="justify-content:center">Initiate</span>
+      <h2>Your competitive advantage is live.</h2>
+      <p>Five decades of trucking, one modern console. Get a quote or plug your fleet into the network.</p>
+      <div class="hero-ctas">
         <a class="btn btn-red" href="contact.html">Request a Quote</a>
-        <a class="btn btn-outline-dark" href="carriers.html">Become a Partner Carrier</a>
+        <a class="btn btn-ghost" href="carriers.html">Become a Partner Carrier</a>
       </div>
     </div>
   </section>
@@ -169,9 +266,15 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="assets/logo.png" alt="Rite Route Supply Chain Solutions">
-        <p class="footer-tag">Your competitive advantage — technology-driven logistics for all of North America.</p>
+      <div>
+        <a class="brand" href="index.html">
+          <img src="assets/favicon.png" alt="" style="height:38px">
+          <span class="wordmark">
+            <b>Rite<span>Route</span></b>
+            <small>Supply Chain OS</small>
+          </span>
+        </a>
+        <p class="footer-tag">Technology-driven logistics for all of North America.</p>
         <p class="footer-flags"><img src="assets/flags-coverage.png" alt="Proudly serving Canada, the USA and Mexico"></p>
       </div>
       <div>
@@ -194,14 +297,14 @@
       <div>
         <h4>Head office</h4>
         <ul class="footer-contact">
-          <li>182 Browns Line<br>Etobicoke, ON M8W 3T3</li>
+          <li>182 Browns Line, Etobicoke, ON M8W 3T3</li>
           <li><a href="tel:+16474784921">(647) 478-4921</a></li>
           <li><a href="mailto:ship@riteroute.ca">ship@riteroute.ca</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Rite Route Supply Chain Solutions. All rights reserved.</span>
+      <span>© 2026 RITE ROUTE SUPPLY CHAIN SOLUTIONS</span>
       <div class="footer-social">
         <a href="https://www.linkedin.com/" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
@@ -215,5 +318,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/futuristic.js"></script>
 </body>
 </html>
