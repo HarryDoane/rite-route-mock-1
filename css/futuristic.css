@@ -560,3 +560,139 @@ section { padding-block: var(--section-y); }
   .net-readouts { grid-template-columns: 1fr; }
   .net-readouts > div + div { border-left: 0; border-top: 1px solid var(--line); }
 }
+
+/* --------------------------------------------------------------------------
+   Floating data chips (hero)
+   -------------------------------------------------------------------------- */
+
+.chip {
+  position: absolute;
+  z-index: 2;
+  background: rgba(16, 18, 22, 0.92);
+  border: 1px solid var(--line-strong);
+  border-radius: 5px;
+  padding: 0.55rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+  animation: chipFloat 5.5s ease-in-out infinite alternate;
+  white-space: nowrap;
+}
+.chip b { color: var(--text); font-weight: 500; }
+.chip .ok { color: var(--red); }
+.chip.c1 { top: -18px; right: 8%; animation-delay: 0s; }
+.chip.c2 { bottom: 84px; left: -26px; animation-delay: -2.2s; }
+@keyframes chipFloat { from { transform: translateY(-4px); } to { transform: translateY(6px); } }
+
+/* --------------------------------------------------------------------------
+   Shipment journey — scroll-driven route line + waypoints
+   -------------------------------------------------------------------------- */
+
+.journey { border-top: 1px solid var(--line); }
+
+.j-track { position: relative; padding-left: 64px; }
+
+.j-line {
+  position: absolute;
+  top: 6px; bottom: 6px; left: 19px;
+  width: 2px;
+  background:
+    repeating-linear-gradient(to bottom, var(--line-strong) 0 5px, transparent 5px 12px);
+}
+.j-progress {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 0%;
+  background: var(--red);
+  box-shadow: 0 0 12px var(--red-glow);
+}
+.j-marker {
+  position: absolute;
+  top: 0; left: 20px;
+  width: 40px; height: 40px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  background: var(--bg-panel);
+  border: 1px solid var(--red);
+  border-radius: 50%;
+  color: var(--red);
+  box-shadow: 0 0 22px -4px var(--red-glow);
+  z-index: 2;
+}
+.j-marker svg { width: 20px; height: 20px; }
+
+.waypoint {
+  position: relative;
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.9rem 1.8rem;
+  margin-bottom: 2.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  opacity: 0.55;
+}
+.waypoint:last-child { margin-bottom: 0; }
+.waypoint::before {
+  /* station node on the line */
+  content: "";
+  position: absolute;
+  left: -51px; top: 2rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--text-faint);
+  background: var(--bg);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.waypoint.active { opacity: 1; border-color: rgba(255, 59, 65, 0.45); }
+.waypoint.active::before {
+  border-color: var(--red);
+  background: var(--red);
+  box-shadow: 0 0 12px var(--red-glow);
+}
+
+.waypoint .wp-code {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  color: var(--text-faint);
+  display: block;
+  margin-bottom: 0.9rem;
+}
+.waypoint.active .wp-code { color: var(--red); }
+.waypoint h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
+.waypoint p { font-size: 0.9875rem; color: var(--text-faint); max-width: 52em; }
+
+.wp-chip {
+  display: inline-block;
+  margin-top: 1.1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  padding: 0.5rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  background: var(--bg);
+}
+.waypoint.active .wp-chip { border-color: rgba(255, 59, 65, 0.4); }
+.wp-chip .ok { color: var(--red); }
+
+@media (prefers-reduced-motion: reduce) {
+  .chip { animation: none; }
+  .waypoint { opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .chip.c2 { display: none; }
+  .chip.c1 { right: 0; }
+  .j-track { padding-left: 48px; }
+  .j-line { left: 13px; }
+  .j-marker { left: 14px; width: 32px; height: 32px; }
+  .j-marker svg { width: 16px; height: 16px; }
+  .waypoint::before { left: -41px; }
+}
