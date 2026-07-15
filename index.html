@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rite Route — Freight, Run Like Mission Control</title>
-  <meta name="description" content="Rite Route is the freight command center: real-time visibility across 45,000+ fleets, live market rates, and a single point of contact 24/7/365 across Canada, the USA and Mexico.">
+  <title>Rite Route — Logistics, Under Total Command</title>
+  <meta name="description" content="Rite Route pairs real-time visibility across 45,000+ fleets with five decades of trucking experience. FTL, LTL, 4PL, expedited and final-mile across Canada, the USA and Mexico.">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/futuristic.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
       <img src="assets/favicon.png" alt="">
       <span class="wordmark">
         <b>Rite<span>Route</span></b>
-        <small>Supply Chain OS</small>
+        <small>Supply Chain Solutions</small>
       </span>
     </a>
     <nav class="site-nav" aria-label="Main navigation">
@@ -30,7 +30,7 @@
       <a href="news.html">News</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <a class="btn btn-red header-cta" href="contact.html">Request Quote</a>
+    <a class="btn btn-red header-cta" href="contact.html">Request a quote</a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -39,89 +39,63 @@
 
 <main>
 
-  <!-- Hero: mission control -->
+  <!-- Hero -->
   <section class="hero">
-    <div class="grid-bg" aria-hidden="true"></div>
     <div class="container hero-grid">
       <div>
         <span class="kicker">Supply Chain Solutions</span>
-        <h1>Freight, run like <span class="accent">mission control</span><span class="cursor" aria-hidden="true"></span></h1>
-        <p class="lede">One platform, 45,000+ connected fleets, five decades of trucking instinct. Every shipment tracked, priced and dispatched in real time — across Canada, the USA and Mexico.</p>
+        <h1>Logistics, under total command.</h1>
+        <p class="lede">Real-time visibility across 45,000+ connected fleets, live market pricing, and one person who always answers — built on five decades of trucking experience across Canada, the USA and Mexico.</p>
         <div class="hero-ctas">
-          <a class="btn btn-red" href="contact.html">Request a Quote</a>
-          <a class="btn btn-ghost" href="carriers.html">Join the Network</a>
+          <a class="btn btn-red" href="contact.html">Request a quote</a>
+          <a class="btn btn-ghost-dark" href="carriers.html">Become a partner carrier</a>
         </div>
       </div>
 
-      <div class="panel hud" aria-label="Live network status (illustrative)">
-        <div class="chip c1" aria-hidden="true"><b>SHIPMENT #4409</b> · <span class="ok">ON TIME</span></div>
-        <div class="chip c2" aria-hidden="true">TEMP 3.2°C · <span class="ok">IN RANGE</span></div>
-        <span class="corner tl" aria-hidden="true"></span>
-        <span class="corner tr" aria-hidden="true"></span>
-        <span class="corner bl" aria-hidden="true"></span>
-        <span class="corner br" aria-hidden="true"></span>
+      <div class="panel" aria-label="Network overview (illustrative)">
+        <div class="chip c1" aria-hidden="true"><b>Shipment #4409</b> · <span class="ok">On time</span></div>
+        <div class="chip c2" aria-hidden="true">Temp 3.2°C · <span class="ok">In range</span></div>
 
         <div class="panel-head">
-          <span class="mono"><span class="status-dot" aria-hidden="true"></span>Live Network</span>
-          <span class="mono faint" id="net-clock">00:00:00 UTC</span>
+          <span class="title"><span class="status-dot" aria-hidden="true"></span>Network overview</span>
+          <span class="mono" id="net-clock">00:00:00 UTC</span>
         </div>
 
         <div class="panel-body">
-          <svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated freight routes connecting Toronto, Chicago, Dallas, Monterrey and Montréal">
+          <svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Freight routes connecting Toronto, Chicago, Monterrey and Montréal">
             <path class="route-line" d="M96 74 C 160 96, 200 128, 236 142"/>
             <path class="route-line" d="M236 142 C 280 176, 320 208, 356 224"/>
             <path class="route-line alt" d="M96 74 C 210 52, 300 58, 390 66"/>
             <path class="route-line alt" d="M390 66 C 340 118, 290 132, 236 142"/>
 
-            <circle class="node-ring" cx="96" cy="74" r="12"/>
             <circle class="node" cx="96" cy="74" r="5"/>
-            <circle class="node-ring" cx="236" cy="142" r="12"/>
             <circle class="node" cx="236" cy="142" r="5"/>
-            <circle class="node-ring" cx="356" cy="224" r="12"/>
             <circle class="node" cx="356" cy="224" r="5"/>
-            <circle class="node" cx="390" cy="66" r="4" opacity="0.7"/>
+            <circle class="node minor" cx="390" cy="66" r="3.5"/>
 
-            <text class="net-label bright" x="110" y="66">TOR — Toronto</text>
-            <text class="net-value" x="110" y="82">HUB · ONLINE</text>
-            <text class="net-label bright" x="250" y="134">CHI — Chicago</text>
+            <text class="net-label bright" x="110" y="66">Toronto</text>
+            <text class="net-value" x="110" y="82">Hub · Online</text>
+            <text class="net-label bright" x="250" y="134">Chicago</text>
             <text class="net-value" x="250" y="150">ETA 04:12</text>
-            <text class="net-label bright" x="268" y="232">MTY — Monterrey</text>
-            <text class="net-value" x="268" y="248">CROSS-BORDER</text>
-            <text class="net-label" x="322" y="52">YUL — Montréal</text>
+            <text class="net-label bright" x="268" y="232">Monterrey</text>
+            <text class="net-value" x="268" y="248">Cross-border</text>
+            <text class="net-label" x="330" y="52">Montréal</text>
           </svg>
         </div>
 
         <div class="net-readouts">
           <div>
-            <span class="mono faint">Connected fleets</span>
-            <span class="val"><em>45,012</em></span>
+            <span class="mono">Connected fleets</span>
+            <span class="val">45,012</span>
           </div>
           <div>
-            <span class="mono faint">Support window</span>
-            <span class="val">24/7<em>/365</em></span>
+            <span class="mono">Support window</span>
+            <span class="val">24/7/365</span>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Rate ticker (illustrative) -->
-  <div class="ticker" aria-label="Sample lane rates (illustrative)">
-    <div class="ticker-track">
-      <span class="tick-item"><b>TOR → CHI</b> FTL DRY <span class="up">▲ LIVE</span></span>
-      <span class="tick-item"><b>YYZ → JFK</b> EXPEDITED <span class="up">02:40 PICKUP</span></span>
-      <span class="tick-item"><b>MTL → BOS</b> LTL 6 SKIDS <span class="up">QUOTED 38S</span></span>
-      <span class="tick-item"><b>VAN → SEA</b> REEFER <span class="up">▲ CAPACITY</span></span>
-      <span class="tick-item"><b>TOR → MEX</b> CROSS-BORDER <span class="up">DOCS AUTO</span></span>
-      <span class="tick-item"><b>CGY → DEN</b> FLATBED <span class="up">MATCHED</span></span>
-      <span class="tick-item"><b>TOR → CHI</b> FTL DRY <span class="up">▲ LIVE</span></span>
-      <span class="tick-item"><b>YYZ → JFK</b> EXPEDITED <span class="up">02:40 PICKUP</span></span>
-      <span class="tick-item"><b>MTL → BOS</b> LTL 6 SKIDS <span class="up">QUOTED 38S</span></span>
-      <span class="tick-item"><b>VAN → SEA</b> REEFER <span class="up">▲ CAPACITY</span></span>
-      <span class="tick-item"><b>TOR → MEX</b> CROSS-BORDER <span class="up">DOCS AUTO</span></span>
-      <span class="tick-item"><b>CGY → DEN</b> FLATBED <span class="up">MATCHED</span></span>
-    </div>
-  </div>
 
   <!-- Metrics -->
   <div class="metrics">
@@ -136,8 +110,8 @@
           <span class="label">Years in trucking</span>
         </div>
         <div class="metric reveal">
-          <span class="num">24/7<em>/365</em></span>
-          <span class="label">Human support</span>
+          <span class="num">24/7</span>
+          <span class="label">Human support, 365 days</span>
         </div>
         <div class="metric reveal">
           <span class="num"><span data-count="3">0</span></span>
@@ -147,27 +121,25 @@
     </div>
   </div>
 
-  <!-- Capabilities bento -->
+  <!-- Capabilities -->
   <section>
     <div class="container">
       <div class="section-head reveal">
         <span class="kicker">Capabilities</span>
-        <h2>Every mode. One console.</h2>
+        <h2>Every mode, one platform</h2>
         <p>Solution-based products independent of shipment size — FTL or LTL, planned or urgent, one skid or a hundred trucks.</p>
       </div>
 
       <div class="bento">
-        <div class="tile w2 tile-glow reveal">
-          <span class="t-code">SYS.01 / VISIBILITY</span>
+        <div class="tile w2 reveal">
           <div class="t-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
           </div>
           <h3>Real-time tracking</h3>
-          <p>Complete visibility across 45,000+ connected fleets. Watch freight move live from pickup to proof of delivery — no check calls, no black holes. End-to-end AI removes the human error that slows freight down.</p>
+          <p>Complete visibility across 45,000+ connected fleets — position, ETA and exceptions from pickup to proof of delivery. End-to-end automation removes the human error that slows freight down.</p>
         </div>
 
         <div class="tile reveal">
-          <span class="t-code">SVC.01</span>
           <div class="t-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M10.5 6.8L6 16.7M13.5 6.8L18 16.7M7.5 19h9"/></svg>
           </div>
@@ -176,7 +148,6 @@
         </div>
 
         <div class="tile reveal">
-          <span class="t-code">SVC.02</span>
           <div class="t-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h13v8H1zM14 10h4l3 3v3h-7z"/><circle cx="5.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg>
           </div>
@@ -185,16 +156,14 @@
         </div>
 
         <div class="tile reveal">
-          <span class="t-code">SVC.03</span>
           <div class="t-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>
           </div>
           <h3>Spot market</h3>
-          <p>Rates change by the minute. Get the cheapest, 24/7/365.</p>
+          <p>Rates change by the minute. Instant access to the best of them, 24/7/365.</p>
         </div>
 
         <div class="tile reveal">
-          <span class="t-code">SVC.04</span>
           <div class="t-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg>
           </div>
@@ -203,16 +172,14 @@
         </div>
 
         <div class="tile reveal">
-          <span class="t-code">SVC.05</span>
           <div class="t-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></svg>
           </div>
           <h3>Canadian final mile</h3>
-          <p>Crowdsourced courier networks delivering direct to your customers.</p>
+          <p>Local courier networks delivering direct to your customers, coast to coast.</p>
         </div>
 
         <div class="tile reveal">
-          <span class="t-code">SVC.06</span>
           <div class="t-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
           </div>
@@ -227,9 +194,9 @@
   <section class="journey">
     <div class="container">
       <div class="section-head reveal">
-        <span class="kicker">Shipment Lifecycle</span>
+        <span class="kicker">Shipment lifecycle</span>
         <h2>Follow one load, dock to door</h2>
-        <p>Scroll the route. This is what every Rite Route shipment looks like from the console.</p>
+        <p>Scroll the route — this is what every Rite Route shipment looks like.</p>
       </div>
 
       <div class="j-track" id="j-track">
@@ -241,38 +208,38 @@
         </div>
 
         <article class="waypoint" data-wp>
-          <span class="wp-code">WP/01 — ORIGIN</span>
+          <span class="wp-code">01 · Origin</span>
           <h3>Quoted in real time</h3>
           <p>Your lane and freight profile hit the market as it is right now. Live pricing comes back in minutes — built on up-to-the-minute conditions, not last year's contract.</p>
-          <span class="wp-chip">TOR → CHI · FTL DRY · <span class="ok">QUOTED IN 38S</span></span>
+          <span class="wp-chip">TOR → CHI · FTL dry · <span class="ok">Quoted in 38s</span></span>
         </article>
 
         <article class="waypoint" data-wp>
-          <span class="wp-code">WP/02 — DISPATCH</span>
+          <span class="wp-code">02 · Dispatch</span>
           <h3>Matched across 45,000+ fleets</h3>
-          <p>The TMS finds the right truck — FTL, LTL, expedited or final mile — and dispatches it with the full shipment file. No phone tag, no rekeying, no human error.</p>
-          <span class="wp-chip">CARRIER #8841 · <span class="ok">ASSIGNED 00:04</span></span>
+          <p>The platform finds the right truck — FTL, LTL, expedited or final mile — and dispatches it with the full shipment file. No phone tag, no rekeying, no human error.</p>
+          <span class="wp-chip">Carrier #8841 · <span class="ok">Assigned in 4 min</span></span>
         </article>
 
         <article class="waypoint" data-wp>
-          <span class="wp-code">WP/03 — IN TRANSIT</span>
+          <span class="wp-code">03 · In transit</span>
           <h3>Tracked to the minute</h3>
           <p>Complete visibility from the connected fleet: position, ETA and exceptions in real time. You watch it move; nobody makes a check call.</p>
-          <span class="wp-chip">GPS 43.65N 79.38W · <span class="ok">ON TIME</span></span>
+          <span class="wp-chip">GPS 43.65N 79.38W · <span class="ok">On time</span></span>
         </article>
 
         <article class="waypoint" data-wp>
-          <span class="wp-code">WP/04 — BORDER</span>
+          <span class="wp-code">04 · Border</span>
           <h3>Cross-border, cleared</h3>
-          <p>Canada, the USA and Mexico are one network to us. Customs paperwork is prepared and filed ahead of the wheels — five decades of border instinct, automated.</p>
-          <span class="wp-chip">CBSA / CBP · <span class="ok">CLEARED 00:14</span></span>
+          <p>Canada, the USA and Mexico are one network to us. Customs paperwork is prepared and filed ahead of the wheels — five decades of border experience, automated.</p>
+          <span class="wp-chip">CBSA / CBP · <span class="ok">Cleared in 14 min</span></span>
         </article>
 
         <article class="waypoint" data-wp>
-          <span class="wp-code">WP/05 — DELIVERED</span>
+          <span class="wp-code">05 · Delivered</span>
           <h3>Proof of delivery, instantly</h3>
-          <p>Signed POD lands in your inbox the moment the freight lands on the dock. And if anything ever needs a human, yours is a call, text or email away — 24/7/365.</p>
-          <span class="wp-chip">POD SIGNED · <span class="ok">09:42 LOCAL</span></span>
+          <p>The signed POD lands in your inbox the moment the freight lands on the dock. And if anything ever needs a human, yours is a call, text or email away — 24/7/365.</p>
+          <span class="wp-chip">POD signed · <span class="ok">09:42 local</span></span>
         </article>
       </div>
     </div>
@@ -281,12 +248,12 @@
   <!-- CTA -->
   <section class="cta">
     <div class="container reveal">
-      <span class="kicker" style="justify-content:center">Initiate</span>
-      <h2>Your competitive advantage is live.</h2>
-      <p>Five decades of trucking, one modern console. Get a quote or plug your fleet into the network.</p>
+      <span class="kicker">Get started</span>
+      <h2>Your competitive advantage starts here.</h2>
+      <p>Five decades of trucking, one modern platform. Get a quote, or plug your fleet into the network.</p>
       <div class="hero-ctas">
-        <a class="btn btn-red" href="contact.html">Request a Quote</a>
-        <a class="btn btn-ghost" href="carriers.html">Become a Partner Carrier</a>
+        <a class="btn btn-red" href="contact.html">Request a quote</a>
+        <a class="btn btn-ghost-dark" href="carriers.html">Become a partner carrier</a>
       </div>
     </div>
   </section>
@@ -298,10 +265,10 @@
     <div class="footer-grid">
       <div>
         <a class="brand" href="index.html">
-          <img src="assets/favicon.png" alt="" style="height:38px">
+          <img src="assets/favicon.png" alt="" style="height:36px">
           <span class="wordmark">
             <b>Rite<span>Route</span></b>
-            <small>Supply Chain OS</small>
+            <small>Supply Chain Solutions</small>
           </span>
         </a>
         <p class="footer-tag">Technology-driven logistics for all of North America.</p>
@@ -319,9 +286,9 @@
       <div>
         <h4>Get started</h4>
         <ul class="footer-links">
-          <li><a href="contact.html">Request a Quote</a></li>
-          <li><a href="carriers.html">Become a Partner Carrier</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html">Request a quote</a></li>
+          <li><a href="carriers.html">Become a partner carrier</a></li>
+          <li><a href="contact.html">Contact us</a></li>
         </ul>
       </div>
       <div>
@@ -334,7 +301,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 RITE ROUTE SUPPLY CHAIN SOLUTIONS</span>
+      <span>© 2026 Rite Route Supply Chain Solutions. All rights reserved.</span>
       <div class="footer-social">
         <a href="https://www.linkedin.com/" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
