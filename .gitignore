@@ -2,4 +2,9 @@
 Thumbs.db
 *.log
 node_modules/
-.claude/
+
+# Keep local tool data out of the repo, but ship the frontend-design skill
+.claude/*
+!.claude/skills
+.claude/skills/*
+!.claude/skills/frontend-design
