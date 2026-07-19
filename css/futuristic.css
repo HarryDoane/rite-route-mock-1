@@ -621,3 +621,30 @@ section { padding-block: var(--section-y); }
 @media (max-width: 640px) {
   .promise-grid { grid-template-columns: 1fr; }
 }
+
+/* --------------------------------------------------------------------------
+   Globe hero visual: graticules + trucks driving routes
+   -------------------------------------------------------------------------- */
+
+.grat { fill: none; stroke: rgba(255, 255, 255, 0.1); stroke-width: 1; }
+
+.truck { offset-rotate: auto; }
+.truck.t1 {
+  offset-path: path("M205 100 C 180 115, 172 130, 170 150 C 175 180, 195 200, 215 215");
+  animation: drive 14s linear infinite;
+}
+.truck.t2 {
+  offset-path: path("M205 100 C 235 85, 265 80, 292 88");
+  animation: drive 9s linear infinite;
+  animation-delay: -3s;
+}
+@keyframes drive {
+  0% { offset-distance: 0%; opacity: 0; }
+  6% { opacity: 1; }
+  94% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .truck { animation: none; offset-distance: 55%; opacity: 1; }
+}
