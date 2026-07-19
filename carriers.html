@@ -8,14 +8,20 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@700;800&family=Archivo:wght@400;600;700&family=Overpass+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html"><img src="assets/logo.png" alt="Rite Route Supply Chain Solutions"></a>
+    <a class="brand" href="index.html">
+      <img src="assets/favicon.png" alt="">
+      <span class="wordmark">
+        <b>Rite<span>Route</span></b>
+        <small>Supply Chain Solutions</small>
+      </span>
+    </a>
     <nav class="site-nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="shippers.html">Shippers</a>
@@ -24,7 +30,7 @@
       <a href="news.html">News</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <a class="btn btn-red header-cta" href="contact.html">Request a Quote</a>
+    <a class="btn btn-red header-cta" href="contact.html">Request a quote</a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -37,6 +43,7 @@
     <div class="container">
       <span class="kicker">Our Carrier Promise</span>
       <h1>No games. No BS. <span class="accent">Just honest partnership.</span></h1>
+      <div class="stripe hero-stripe" aria-hidden="true"></div>
       <p class="lede">Our carriers are trusted partners. Honest relationships built on respect and consistency, with regular lanes that are yours, every time.</p>
       <div class="hero-ctas" style="margin-top:2.2rem">
         <a class="btn btn-red" href="contact.html">Become a Partner Carrier</a>
@@ -51,30 +58,35 @@
         <h2>What partnership means here</h2>
       </div>
 
-      <div class="feature-row reveal">
-        <span class="n">01</span>
-        <div>
+      <div class="grid cols-2">
+        <div class="card reveal">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
           <h3>Partnership mindset</h3>
           <p>Our carriers are trusted partners. No games. No BS. Just honest relationships built on respect and consistency. You'll get regular lanes that are yours, every time, with right of first refusal on committed lanes.</p>
         </div>
-      </div>
-      <div class="feature-row reveal">
-        <span class="n">02</span>
-        <div>
+
+        <div class="card reveal">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
+          </div>
           <h3>Fast, fair payment</h3>
           <p>30-day payment terms with quick-pay options. If cash flow's tight, we'll work with you to create a custom payment plan. No need for factoring. We'll do it faster and cheaper.</p>
         </div>
-      </div>
-      <div class="feature-row reveal">
-        <span class="n">03</span>
-        <div>
+
+        <div class="card reveal">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
           <h3>24-7-365 access</h3>
           <p>We never close. When issues arise, we jump in fast to keep your wheels turning. Nights, weekends, holidays: a real person answers.</p>
         </div>
-      </div>
-      <div class="feature-row reveal">
-        <span class="n">04</span>
-        <div>
+
+        <div class="card reveal">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          </div>
           <h3>Ease of doing business</h3>
           <p>Accurate updates. Honest answers. Industry pros who pick up the phone and keep their promises.</p>
         </div>
@@ -127,9 +139,15 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="assets/logo.png" alt="Rite Route Supply Chain Solutions">
-        <p class="footer-tag">Your competitive advantage: technology-driven logistics for all of North America.</p>
+      <div>
+        <a class="brand" href="index.html">
+          <img src="assets/favicon.png" alt="" style="height:36px">
+          <span class="wordmark">
+            <b>Rite<span>Route</span></b>
+            <small>Supply Chain Solutions</small>
+          </span>
+        </a>
+        <p class="footer-tag">Proudly Canadian owned and operated. Technology-driven logistics for all of North America.</p>
         <p class="footer-flags"><img src="assets/flags-coverage.png" alt="Proudly serving Canada, the USA and Mexico"></p>
       </div>
       <div>
@@ -144,7 +162,7 @@
       <div>
         <h4>Get started</h4>
         <ul class="footer-links">
-          <li><a href="contact.html">Request a Quote</a></li>
+          <li><a href="contact.html">Request a quote</a></li>
           <li><a href="carriers.html">Become a Partner Carrier</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>

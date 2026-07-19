@@ -8,14 +8,20 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@700;800&family=Archivo:wght@400;600;700&family=Overpass+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html"><img src="assets/logo.png" alt="Rite Route Supply Chain Solutions"></a>
+    <a class="brand" href="index.html">
+      <img src="assets/favicon.png" alt="">
+      <span class="wordmark">
+        <b>Rite<span>Route</span></b>
+        <small>Supply Chain Solutions</small>
+      </span>
+    </a>
     <nav class="site-nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="shippers.html">Shippers</a>
@@ -24,7 +30,7 @@
       <a href="news.html">News</a>
       <a href="contact.html" aria-current="page">Contact</a>
     </nav>
-    <a class="btn btn-red header-cta" href="#form">Request a Quote</a>
+    <a class="btn btn-red header-cta" href="contact.html">Request a quote</a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -37,6 +43,7 @@
     <div class="container">
       <span class="kicker">Contact Us</span>
       <h1>What can we <span class="accent">help you with?</span></h1>
+      <div class="stripe hero-stripe" aria-hidden="true"></div>
       <p class="lede">A real person reads every message, and the supply chain never sleeps, so neither does our inbox.</p>
     </div>
   </section>
@@ -144,9 +151,15 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="assets/logo.png" alt="Rite Route Supply Chain Solutions">
-        <p class="footer-tag">Your competitive advantage: technology-driven logistics for all of North America.</p>
+      <div>
+        <a class="brand" href="index.html">
+          <img src="assets/favicon.png" alt="" style="height:36px">
+          <span class="wordmark">
+            <b>Rite<span>Route</span></b>
+            <small>Supply Chain Solutions</small>
+          </span>
+        </a>
+        <p class="footer-tag">Proudly Canadian owned and operated. Technology-driven logistics for all of North America.</p>
         <p class="footer-flags"><img src="assets/flags-coverage.png" alt="Proudly serving Canada, the USA and Mexico"></p>
       </div>
       <div>
@@ -161,7 +174,7 @@
       <div>
         <h4>Get started</h4>
         <ul class="footer-links">
-          <li><a href="contact.html">Request a Quote</a></li>
+          <li><a href="contact.html">Request a quote</a></li>
           <li><a href="carriers.html">Become a Partner Carrier</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>

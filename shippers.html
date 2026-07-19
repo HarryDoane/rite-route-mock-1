@@ -8,14 +8,20 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@700;800&family=Archivo:wght@400;600;700&family=Overpass+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html"><img src="assets/logo.png" alt="Rite Route Supply Chain Solutions"></a>
+    <a class="brand" href="index.html">
+      <img src="assets/favicon.png" alt="">
+      <span class="wordmark">
+        <b>Rite<span>Route</span></b>
+        <small>Supply Chain Solutions</small>
+      </span>
+    </a>
     <nav class="site-nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="shippers.html" aria-current="page">Shippers</a>
@@ -24,7 +30,7 @@
       <a href="news.html">News</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <a class="btn btn-red header-cta" href="contact.html">Request a Quote</a>
+    <a class="btn btn-red header-cta" href="contact.html">Request a quote</a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -37,6 +43,7 @@
     <div class="container">
       <span class="kicker">For Shippers</span>
       <h1>Transforming logistics <span class="accent">one customer at a time.</span></h1>
+      <div class="stripe hero-stripe" aria-hidden="true"></div>
       <p class="lede">Technology revolutionized taxis, hotels and retail, yet since deregulation, very little has changed in how logistics companies operate. We're changing that.</p>
     </div>
   </section>
@@ -49,30 +56,35 @@
         <p>Four things every Rite Route shipper gets on day one. No enterprise contract required.</p>
       </div>
 
-      <div class="feature-row reveal">
-        <span class="n">01</span>
-        <div>
+      <div class="grid cols-2">
+        <div class="card reveal">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+          </div>
           <h3>Real-time visibility</h3>
           <p>A complete visibility platform that tracks your shipments in real time across 45,000+ connected fleets. Know where your freight is, always, without picking up the phone.</p>
         </div>
-      </div>
-      <div class="feature-row reveal">
-        <span class="n">02</span>
-        <div>
+
+        <div class="card reveal">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></svg>
+          </div>
           <h3>End-to-end technology &amp; AI</h3>
           <p>Automation across the entire shipment lifecycle eliminates the human error behind most freight failures (missed pickups, wrong docs, silent delays) and raises your service level.</p>
         </div>
-      </div>
-      <div class="feature-row reveal">
-        <span class="n">03</span>
-        <div>
+
+        <div class="card reveal">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
           <h3>A single point of contact, 24/7/365</h3>
           <p>One dedicated person who knows your freight and is a phone call, text or email away, around the clock, every day of the year. The supply chain doesn't sleep; neither do we.</p>
         </div>
-      </div>
-      <div class="feature-row reveal">
-        <span class="n">04</span>
-        <div>
+
+        <div class="card reveal">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0L6.41 10.54A2 2 0 0 1 4.48 12H2"/></svg>
+          </div>
           <h3>Live market pricing</h3>
           <p>Instant access to real-time rates built on up-to-the-minute market conditions. When the market moves in your favour, your rate does too.</p>
         </div>
@@ -87,7 +99,7 @@
         <h2>One stop for all your trucking needs</h2>
         <p>If it moves on a truck, we've got a sustainable solution. And our second-generation, best-in-class TMS powers everything we do: real-time pricing across all lanes, online LTL partnerships with access to our LTL rate portal, AI-driven dynamic spot rates, and individual truck tracking in real time.</p>
         <div style="margin-top:2rem">
-          <a class="btn btn-red" href="contact.html">Request a Quote</a>
+          <a class="btn btn-red" href="contact.html">Request a quote</a>
         </div>
       </div>
       <div class="reveal">
@@ -108,7 +120,7 @@
       <h2>Experience the ease. Try us once.</h2>
       <p>We'll match any price on your North American trucking shipment. If you don't experience the ease, you don't pay. Call <a href="tel:+16474784921" style="color:#fff;text-decoration:underline">(647) 478-4921</a> to learn more.</p>
       <div class="hero-ctas">
-        <a class="btn btn-white" href="contact.html">Request a Quote</a>
+        <a class="btn btn-white" href="contact.html">Request a quote</a>
         <a class="btn btn-outline-light" href="mailto:ship@riteroute.ca">Email ship@riteroute.ca</a>
       </div>
     </div>
@@ -119,9 +131,15 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="assets/logo.png" alt="Rite Route Supply Chain Solutions">
-        <p class="footer-tag">Your competitive advantage: technology-driven logistics for all of North America.</p>
+      <div>
+        <a class="brand" href="index.html">
+          <img src="assets/favicon.png" alt="" style="height:36px">
+          <span class="wordmark">
+            <b>Rite<span>Route</span></b>
+            <small>Supply Chain Solutions</small>
+          </span>
+        </a>
+        <p class="footer-tag">Proudly Canadian owned and operated. Technology-driven logistics for all of North America.</p>
         <p class="footer-flags"><img src="assets/flags-coverage.png" alt="Proudly serving Canada, the USA and Mexico"></p>
       </div>
       <div>
@@ -136,7 +154,7 @@
       <div>
         <h4>Get started</h4>
         <ul class="footer-links">
-          <li><a href="contact.html">Request a Quote</a></li>
+          <li><a href="contact.html">Request a quote</a></li>
           <li><a href="carriers.html">Become a Partner Carrier</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
