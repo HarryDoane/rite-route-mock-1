@@ -1,0 +1,963 @@
+/* ==========================================================================
+   Rite Route — design system v2
+   Direction: freight paperwork, not SaaS dashboard. The rate confirmation and
+   the bill of lading are the source material: ruled fields, small-caps labels,
+   typed lane notation, a red stamp. Photography-led, paper-dominant.
+
+   The hero sets dark ink on the photograph's own pale overcast sky (measured
+   205/255 mean luma in the headline zone, ~11.5:1 against --rr-ink) rather
+   than white-on-black. That reads as documentary/annual-report and avoids the
+   near-black-plus-one-accent look this concept started with.
+
+   Loaded AFTER futuristic.css during migration. Hero + header only so far.
+   ========================================================================== */
+
+:root {
+  /* --- colour: six values, no gradients, no glows ------------------------ */
+  --rr-red: #d71920;        /* brand. most-frequent hex on riteroute.ca      */
+  --rr-red-ink: #a8121a;    /* hover, active, stamp                          */
+  --rr-paper: #f7f6f3;      /* page. warm and document-like, not clinical    */
+  --rr-ink: #14161a;        /* text. near-black, never pure                  */
+  --rr-steel: #5b6169;      /* labels, secondary, captions                   */
+  --rr-rule: #dedcd7;       /* hairlines, field dividers                     */
+
+  /* --- type -------------------------------------------------------------
+     Display is Archivo: the same 19th-century American-gothic lineage that
+     GT America draws on, which is what Flexport and Schneider independently
+     chose. To switch to the brand's intended Altivo, add a working Adobe
+     Fonts kit and change --rr-display / --rr-body to:
+       altivo, "Archivo", sans-serif
+     --------------------------------------------------------------------- */
+  --rr-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --rr-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --rr-data: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  --rr-gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --rr-measure: 1240px;
+}
+
+/* ==========================================================================
+   Header — light masthead, matching the real brand rather than the dark
+   concept it replaces.
+   ========================================================================== */
+
+.site-header.rr-header {
+  background: #fff;
+  border-bottom: 1px solid var(--rr-rule);
+  font-family: var(--rr-body);
+}
+.rr-header .site-nav a {
+  color: var(--rr-ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.rr-header .site-nav a:hover { color: var(--rr-red); }
+.rr-header .site-nav a[aria-current="page"] { color: var(--rr-red); }
+.rr-header .header-cta {
+  background: var(--rr-red);
+  color: #fff;
+  border-radius: 3px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+.rr-header .header-cta:hover { background: var(--rr-red-ink); }
+.rr-header .nav-toggle span { background: var(--rr-ink); }
+/* the wordmark inherits --dark-text from the old dark header, which is
+   near-white and disappeared here. Match the real logo: Rite in ink,
+   Route in brand red. */
+.rr-header .brand .wordmark b { color: var(--rr-ink); }
+.rr-header .brand .wordmark b span { color: var(--rr-red); }
+.rr-header .brand .wordmark small { color: var(--rr-steel); }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero-v2 {
+  position: relative;
+  isolation: isolate;
+  background: var(--rr-paper);
+  color: var(--rr-ink);
+  font-family: var(--rr-body);
+  overflow: hidden;
+  /* futuristic.css sets a bare `section { padding-block: var(--section-y) }`.
+     These sections carry their own padding, so cancel the inherited rule
+     rather than stacking on top of it. */
+  padding-block: 0;
+}
+
+.hero-v2__media { position: absolute; inset: 0; z-index: 0; }
+.hero-v2__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* bias toward the trailer and the pale sky above it */
+  object-position: 54% 62%;
+  display: block;
+}
+/* Light scrim. Lifts the left column where the yard darkens into buildings,
+   and dissolves the frame edges into the page. The sky itself is left alone. */
+.hero-v2__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(98deg, rgba(247, 246, 243, 0.9) 0%, rgba(247, 246, 243, 0.52) 30%, rgba(247, 246, 243, 0.06) 58%, rgba(247, 246, 243, 0) 78%),
+    linear-gradient(to bottom, rgba(247, 246, 243, 0.4) 0%, transparent 18%),
+    linear-gradient(to top, var(--rr-paper) 0%, rgba(247, 246, 243, 0) 22%);
+}
+
+.hero-v2__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--rr-measure);
+  margin-inline: auto;
+  padding: clamp(2.75rem, 5vw, 4rem) var(--rr-gutter) clamp(3rem, 6vw, 4.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 25.5rem);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  min-height: min(66vh, 39rem);
+}
+
+/* --- left column -------------------------------------------------------- */
+
+.hero-v2__eyebrow {
+  font-family: var(--rr-data);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rr-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+.hero-v2__eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--rr-red);
+}
+
+.hero-v2 h1 {
+  font-family: var(--rr-display);
+  font-weight: 640;
+  font-size: clamp(2.5rem, 5.2vw, 4.15rem);
+  line-height: 1.03;
+  letter-spacing: -0.022em;
+  color: var(--rr-ink);
+  margin: 0 0 1.45rem;
+  max-width: 16ch;
+}
+/* Headline stays ink. Red is spent on the quote card, the eyebrow rule and
+   the primary action — three places is already the limit, and a red headline
+   made it four competing accents. */
+
+.hero-v2__lede {
+  font-size: clamp(1.03rem, 1.2vw, 1.1875rem);
+  line-height: 1.62;
+  color: #33383f;
+  max-width: 48ch;
+  margin: 0 0 2.1rem;
+}
+
+/* dual path: shipper and carrier split at the top, as Schneider and Echo do */
+.hero-v2__paths { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+.hero-v2__btn {
+  font-family: var(--rr-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.9rem 1.5rem;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.hero-v2__btn--primary { background: var(--rr-red); color: #fff; }
+.hero-v2__btn--primary:hover { background: var(--rr-red-ink); }
+.hero-v2__btn--ghost {
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--rr-ink);
+  border-color: #bdb9b1;
+}
+.hero-v2__btn--ghost:hover { border-color: var(--rr-ink); background: #fff; }
+
+/* ==========================================================================
+   Signature: the quote card as a rate confirmation
+   ========================================================================== */
+
+.quote-card {
+  background: #fff;
+  color: var(--rr-ink);
+  border-radius: 3px;
+  border: 1px solid var(--rr-rule);
+  box-shadow: 0 1px 0 rgba(20, 22, 26, 0.04), 0 22px 48px -20px rgba(20, 22, 26, 0.28);
+  overflow: hidden;
+}
+
+.quote-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.15rem;
+  background: var(--rr-red);
+}
+.quote-card__head h2 {
+  font-family: var(--rr-data);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
+}
+.quote-card__form-no {
+  font-family: var(--rr-data);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+}
+
+/* mode tabs: FTL / LTL, the same split the live widget uses */
+.quote-card__modes { display: flex; border-bottom: 1px solid var(--rr-rule); }
+.quote-card__mode {
+  flex: 1;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: 0.85rem 0.5rem;
+  font-family: var(--rr-data);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--rr-steel);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.quote-card__mode + .quote-card__mode { border-left: 1px solid var(--rr-rule); }
+.quote-card__mode[aria-checked="true"] {
+  color: var(--rr-ink);
+  border-bottom-color: var(--rr-red);
+}
+.quote-card__mode:hover { color: var(--rr-ink); }
+
+/* ruled fields, laid out the way a rate confirmation is */
+.quote-card__fields { padding: 0.3rem 1.15rem 0; }
+.field {
+  display: grid;
+  grid-template-columns: 4.75rem 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.72rem 0;
+  border-bottom: 1px solid var(--rr-rule);
+}
+.field > label {
+  font-family: var(--rr-data);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--rr-steel);
+}
+.field input {
+  font-family: var(--rr-data);
+  font-size: 0.9375rem;
+  color: var(--rr-ink);
+  background: transparent;
+  border: 0;
+  padding: 0.15rem 0;
+  width: 100%;
+  letter-spacing: 0.04em;
+}
+.field input::placeholder { color: #b5b2aa; letter-spacing: 0.06em; }
+.field input:focus { outline: none; }
+.field:focus-within > label { color: var(--rr-red); }
+.field:focus-within { border-bottom-color: var(--rr-ink); }
+
+/* the lane, echoed back as freight notation */
+.lane-strip {
+  margin: 0;
+  padding: 0.75rem 1.15rem;
+  background: rgba(20, 22, 26, 0.04);
+  border-top: 1px solid var(--rr-rule);
+  font-family: var(--rr-data);
+  /* sized so a full lane notation clears the stamp on one line */
+  font-size: 0.65rem;
+  letter-spacing: 0.045em;
+  color: var(--rr-steel);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  /* nowrap keeps the stamp pinned right; the lane text wraps inside its own
+     span instead of pushing the stamp onto a second line */
+  flex-wrap: nowrap;
+  min-height: 2.85rem;
+}
+.lane-strip > span:first-child { flex: 1 1 auto; min-width: 0; }
+.lane-strip__arrow { color: var(--rr-red); font-weight: 600; }
+.lane-strip b { color: var(--rr-ink); font-weight: 600; }
+/* rubber stamp */
+.lane-strip__stamp {
+  margin-left: auto;
+  border: 1.5px solid var(--rr-red);
+  color: var(--rr-red);
+  border-radius: 2px;
+  padding: 0.16rem 0.44rem;
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  transform: rotate(-1.5deg);
+  white-space: nowrap;
+}
+
+.quote-card__submit {
+  display: block;
+  width: 100%;
+  appearance: none;
+  border: 0;
+  background: var(--rr-ink);
+  color: #fff;
+  font-family: var(--rr-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 1.02rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.quote-card__submit:hover { background: #000; }
+
+.quote-card__foot {
+  padding: 0.78rem 1.15rem;
+  border-top: 1px solid var(--rr-rule);
+  font-family: var(--rr-data);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rr-steel);
+  text-align: center;
+}
+.quote-card__foot a { color: var(--rr-ink); text-decoration: underline; text-underline-offset: 2px; }
+.quote-card__foot a:hover { color: var(--rr-red); }
+
+/* --- visible keyboard focus --------------------------------------------- */
+.hero-v2 a:focus-visible,
+.hero-v2 button:focus-visible,
+.hero-v2 input:focus-visible {
+  outline: 2px solid var(--rr-red);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Metrics — a ruled data row, not animated counters
+   ========================================================================== */
+
+.rr-metrics {
+  background: #fff;
+  border-block: 1px solid var(--rr-rule);
+  font-family: var(--rr-body);
+}
+.rr-metrics__grid {
+  max-width: var(--rr-measure);
+  margin-inline: auto;
+  padding-inline: var(--rr-gutter);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.rr-metric {
+  padding: clamp(1.6rem, 3vw, 2.4rem) clamp(0.75rem, 2vw, 1.75rem);
+}
+.rr-metric + .rr-metric { border-left: 1px solid var(--rr-rule); }
+.rr-metric__num {
+  display: block;
+  font-family: var(--rr-display);
+  font-weight: 640;
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--rr-ink);
+}
+.rr-metric__label {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--rr-data);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--rr-steel);
+  line-height: 1.5;
+}
+/* awaiting a real figure from the client */
+.rr-metric--todo .rr-metric__num { color: #b5b2aa; }
+.rr-metric--todo .rr-metric__label { color: #b5b2aa; }
+
+/* ==========================================================================
+   Trial offer — the hook, kept high on the page
+   ========================================================================== */
+
+.rr-trial {
+  background: var(--rr-red);
+  color: #fff;
+  font-family: var(--rr-body);
+  padding-block: 0; /* see note on .hero-v2 */
+}
+.rr-trial__inner {
+  max-width: var(--rr-measure);
+  margin-inline: auto;
+  padding: clamp(2.75rem, 5.5vw, 4.25rem) var(--rr-gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.rr-trial__eyebrow {
+  font-family: var(--rr-data);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  display: block;
+  margin-bottom: 1rem;
+}
+.rr-trial h2 {
+  font-family: var(--rr-display);
+  font-weight: 640;
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 1rem;
+}
+.rr-trial p {
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  max-width: 46ch;
+}
+.rr-trial__aside {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 3px;
+  padding: clamp(1.35rem, 2.5vw, 1.85rem);
+  background: rgba(0, 0, 0, 0.07);
+}
+.rr-trial__terms {
+  font-family: var(--rr-data);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 1rem;
+  line-height: 1.7;
+}
+.rr-trial__phone {
+  display: inline-block;
+  font-family: var(--rr-display);
+  font-weight: 640;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: -0.01em;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 0.15rem;
+}
+.rr-trial__phone:hover { border-bottom-color: #fff; }
+
+/* ==========================================================================
+   North American Trucking Solutions — technology + services, the way the
+   brief itself groups them
+   ========================================================================== */
+
+.rr-solutions {
+  background: var(--rr-paper);
+  font-family: var(--rr-body);
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+.rr-solutions__inner {
+  max-width: var(--rr-measure);
+  margin-inline: auto;
+  padding-inline: var(--rr-gutter);
+}
+.rr-eyebrow {
+  font-family: var(--rr-data);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rr-steel);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.15rem;
+}
+.rr-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--rr-red);
+}
+.rr-solutions h2 {
+  font-family: var(--rr-display);
+  font-weight: 640;
+  font-size: clamp(1.9rem, 3.6vw, 2.85rem);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  color: var(--rr-ink);
+  margin: 0 0 0.9rem;
+  max-width: 20ch;
+}
+.rr-solutions__lede {
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.62;
+  color: #33383f;
+  max-width: 52ch;
+  margin: 0 0 clamp(2.25rem, 4vw, 3.25rem);
+}
+
+.rr-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4.5vw, 3.5rem);
+  align-items: start;
+}
+.rr-col__head {
+  font-family: var(--rr-data);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rr-ink);
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--rr-ink);
+  margin: 0 0 0.25rem;
+}
+.rr-col__note {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--rr-steel);
+  margin: 1rem 0 0.25rem;
+}
+
+/* Ruled list — the document device, no icons and no numerals. These are
+   unordered capability and service lists, so numbering them would imply a
+   sequence that isn't there; the hairline rules carry the structure. The
+   numbered treatment is reserved for the shipment journey, which is a
+   genuine sequence. */
+.rr-list { list-style: none; margin: 0; padding: 0; }
+.rr-list li {
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--rr-rule);
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--rr-ink);
+}
+.rr-list li span { display: block; }
+.rr-list li small {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  color: var(--rr-steel);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Shipment journey
+   Reset of the card-based timeline. Cards floating on a background is a SaaS
+   convention; a shipment moving through stages is a document, so the steps
+   become ruled entries with the stage in a narrow field column and the text
+   in a wide value column — the same field/value structure as the quote card.
+   Numbering is kept here because this genuinely is a sequence.
+   ========================================================================== */
+
+.journey.rr-journey {
+  background: #fff;
+  border-block: 1px solid var(--rr-rule);
+  font-family: var(--rr-body);
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+.rr-journey .container { max-width: var(--rr-measure); }
+
+.rr-journey .j-track { padding-left: 0; }
+
+/* progress rail sits on the column divider */
+.rr-journey .j-line {
+  left: 0;
+  width: 2px;
+  background: var(--rr-rule);
+}
+.rr-journey .j-progress { background: var(--rr-red); }
+
+/* The scroll-following marker is retired here. The rail's red progress fill
+   plus the stage tick turning red already carry the scroll relationship, and
+   a third floating element on the same 2px rail read as a stray artifact. */
+.rr-journey .j-marker { display: none; }
+
+.rr-journey .waypoint {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rr-rule);
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: clamp(1.6rem, 3vw, 2.2rem) 0 clamp(1.6rem, 3vw, 2.2rem) clamp(1.5rem, 4vw, 3.25rem);
+  opacity: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 9rem) minmax(0, 1fr);
+  /* column gap only — a shared `gap` also spaces the heading, body and stage
+     marker apart vertically, which broke the block into floating fragments */
+  column-gap: clamp(1rem, 3vw, 2.5rem);
+  row-gap: 0;
+  align-items: start;
+  transition: none;
+}
+.rr-journey .waypoint:last-child { border-bottom: 0; }
+.rr-journey .waypoint.active { box-shadow: none; }
+
+/* the stage tick on the rail */
+.rr-journey .waypoint::before {
+  left: -5px;
+  top: clamp(1.9rem, 3.4vw, 2.5rem);
+  width: 12px;
+  height: 12px;
+  border-radius: 0;
+  border: 0;
+  background: var(--rr-rule);
+  transition: background-color 0.35s ease;
+}
+.rr-journey .waypoint.active::before { background: var(--rr-red); }
+
+/* field column */
+.rr-journey .wp-code {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  font-family: var(--rr-data);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--rr-steel);
+  margin: 0;
+  padding-top: 0.35rem;
+  display: block;
+}
+.rr-journey .waypoint.active .wp-code { color: var(--rr-red); }
+
+/* value column */
+.rr-journey .waypoint h3 {
+  grid-column: 2;
+  font-family: var(--rr-display);
+  font-weight: 640;
+  font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--rr-ink);
+  margin: 0 0 0.6rem;
+}
+.rr-journey .waypoint p {
+  grid-column: 2;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #33383f;
+  max-width: 62ch;
+  margin: 0;
+}
+
+/* stage marker, not fabricated telemetry */
+.rr-journey .wp-chip {
+  grid-column: 2;
+  justify-self: start;
+  margin-top: 1rem;
+  background: transparent;
+  border: 0;
+  border-left: 2px solid var(--rr-red);
+  border-radius: 0;
+  padding: 0.1rem 0 0.1rem 0.7rem;
+  font-family: var(--rr-data);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--rr-steel);
+}
+
+@media (max-width: 720px) {
+  .rr-journey .waypoint {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .rr-journey .wp-code { grid-row: auto; grid-column: 1; padding-top: 0; margin-bottom: 0.35rem; }
+  .rr-journey .waypoint h3,
+  .rr-journey .waypoint p,
+  .rr-journey .wp-chip { grid-column: 1; }
+}
+
+/* ==========================================================================
+   Insights — case studies and news
+   Follows C.H. Robinson's move of letting the featured story act as the
+   section heading. Deliberately not three identical shadowed cards: one
+   feature plus a ruled index, so it stays in the document language.
+   ========================================================================== */
+
+.rr-insights {
+  background: var(--rr-paper);
+  border-top: 1px solid var(--rr-rule);
+  font-family: var(--rr-body);
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+.rr-insights__inner {
+  max-width: var(--rr-measure);
+  margin-inline: auto;
+  padding-inline: var(--rr-gutter);
+}
+.rr-insights h2 {
+  font-family: var(--rr-display);
+  font-weight: 640;
+  font-size: clamp(1.9rem, 3.6vw, 2.85rem);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  color: var(--rr-ink);
+  margin: 0 0 0.9rem;
+  max-width: 22ch;
+}
+.rr-insights__lede {
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.62;
+  color: #33383f;
+  max-width: 54ch;
+  margin: 0 0 clamp(2.25rem, 4vw, 3.25rem);
+}
+
+/* Case study left, news/blog tier right. The tier runs two cards rather than
+   three: at this container width three would be ~140px wide, too narrow for a
+   photo to read. Two lands at ~330px, which is C.H. Robinson's own card size. */
+.rr-insights__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.42fr);
+  gap: clamp(2rem, 4.5vw, 3.5rem);
+  align-items: start;
+}
+.rr-tier {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+/* --- photo slot ---------------------------------------------------------
+   Empty frame rather than stock imagery: the brief's closing line is
+   "No stock photos. All pictures will be real."
+   ----------------------------------------------------------------------- */
+.rr-shot {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #eeece7;
+  border: 1px solid var(--rr-rule);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.rr-shot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg, rgba(20, 22, 26, 0.028) 0 8px, transparent 8px 16px);
+}
+.rr-shot span {
+  position: relative;
+  font-family: var(--rr-data);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9d9a93;
+}
+/* when a real image is dropped in, it simply replaces the frame contents */
+.rr-shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* --- news / blog card --------------------------------------------------- */
+.rr-card {
+  display: block;
+  text-decoration: none;
+  border-top: 2px solid var(--rr-ink);
+  padding-top: 1.1rem;
+}
+.rr-card .rr-shot { margin-top: 0.35rem; }
+.rr-card__title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.32;
+  color: var(--rr-ink);
+  margin: 0;
+}
+.rr-card:hover .rr-card__title { color: var(--rr-red); }
+.rr-card:hover .rr-tag { color: var(--rr-red); }
+.rr-card__meta {
+  margin: 0.6rem 0 0;
+  font-family: var(--rr-data);
+  font-size: 0.5625rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--rr-steel);
+}
+
+/* category label, shared */
+.rr-tag {
+  display: inline-block;
+  font-family: var(--rr-data);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rr-red);
+  margin-bottom: 0.7rem;
+}
+
+/* --- feature ------------------------------------------------------------ */
+.rr-feature {
+  display: block;
+  text-decoration: none;
+  border-top: 2px solid var(--rr-ink);
+  padding-top: 1.35rem;
+}
+.rr-feature__title {
+  font-family: var(--rr-display);
+  font-weight: 640;
+  font-size: clamp(1.35rem, 2.4vw, 1.95rem);
+  line-height: 1.18;
+  letter-spacing: -0.018em;
+  color: var(--rr-ink);
+  margin: 0 0 0.75rem;
+}
+.rr-feature:hover .rr-feature__title { color: var(--rr-red); }
+.rr-feature__excerpt {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #33383f;
+  margin: 0 0 1.1rem;
+  max-width: 56ch;
+}
+.rr-feature__more {
+  font-family: var(--rr-data);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rr-ink);
+  border-bottom: 1px solid var(--rr-rule);
+  padding-bottom: 0.2rem;
+}
+.rr-feature:hover .rr-feature__more { border-bottom-color: var(--rr-red); color: var(--rr-red); }
+
+/* slot awaiting real client content */
+.rr-feature--pending {
+  border-top-color: var(--rr-rule);
+  background: repeating-linear-gradient(
+    -45deg, rgba(20,22,26,0.022) 0 10px, transparent 10px 20px);
+  padding: 1.35rem 1.25rem 1.5rem;
+  cursor: default;
+}
+.rr-feature--pending .rr-tag { color: var(--rr-steel); }
+.rr-feature--pending .rr-feature__title { color: var(--rr-steel); }
+.rr-feature--pending .rr-feature__excerpt { color: var(--rr-steel); }
+
+/* --- ruled index -------------------------------------------------------- */
+.rr-index { border-top: 2px solid var(--rr-ink); }
+.rr-index__item {
+  display: block;
+  text-decoration: none;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--rr-rule);
+}
+.rr-index__item .rr-tag { margin-bottom: 0.45rem; color: var(--rr-steel); }
+.rr-index__title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--rr-ink);
+  margin: 0;
+}
+.rr-index__item:hover .rr-index__title { color: var(--rr-red); }
+.rr-index__item:hover .rr-tag { color: var(--rr-red); }
+
+.rr-insights__foot {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--rr-rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.rr-insights__foot p {
+  margin: 0;
+  font-size: 1rem;
+  color: #33383f;
+}
+
+.rr-insights a:focus-visible,
+.rr-insights__foot a:focus-visible {
+  outline: 2px solid var(--rr-red);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .rr-insights__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .rr-tier { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .rr-metrics__grid { grid-template-columns: repeat(2, 1fr); }
+  .rr-metric:nth-child(3) { border-left: 0; }
+  .rr-metric:nth-child(n+3) { border-top: 1px solid var(--rr-rule); }
+  .rr-trial__inner { grid-template-columns: 1fr; }
+  .rr-cols { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .rr-metrics__grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 940px) {
+  .hero-v2__inner {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    min-height: 0;
+  }
+  .hero-v2 h1 { max-width: 20ch; }
+  .hero-v2__media img { object-position: 60% 58%; }
+  .hero-v2__media::after {
+    background:
+      linear-gradient(to bottom, rgba(247, 246, 243, 0.9) 0%, rgba(247, 246, 243, 0.72) 40%, var(--rr-paper) 88%);
+  }
+  .quote-card { max-width: 26rem; }
+}
+
+@media (max-width: 520px) {
+  .field { grid-template-columns: 1fr; gap: 0.15rem; }
+  .lane-strip__stamp { margin-left: 0; }
+  .hero-v2__paths .hero-v2__btn { flex: 1 1 100%; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-v2 *, .rr-header * { transition: none !important; }
+}

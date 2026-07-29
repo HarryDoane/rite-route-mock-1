@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rite Route | North American Trucking Solutions</title>
-  <meta name="description" content="Proudly Canadian owned and operated. One stop for all your North American trucking needs: FTL, LTL, expedited, temperature control, hazmat, drayage, dedicated routes and more, with real people who answer the phone 24-7-365.">
+  <title>Over the Road Technology-Driven Logistics | Rite Route</title>
+  <meta name="description" content="Rite Route moves full and partial truckloads across Canada, the USA and Mexico, backed by 45,000 carriers and five decades in freight. Get a spot rate on your lane.">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@700;800&family=Archivo:wght@400;600;700&family=Overpass+Mono:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/futuristic.css">
+  <link rel="stylesheet" href="css/riteroute.css">
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header rr-header">
   <div class="container header-inner">
     <a class="brand" href="index.html">
       <img src="assets/favicon.png" alt="">
@@ -40,318 +41,234 @@
 <main>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="kicker">Rite Route Supply Chain Solutions</span>
-        <h1>North American trucking solutions.</h1>
-        <div class="stripe hero-stripe" aria-hidden="true"></div>
-        <p class="lede">One stop for all your North American trucking needs. If it moves on a truck, we've got a sustainable solution, with real-time visibility, honest market pricing, and real people who answer the phone.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-red" href="contact.html">Request a quote</a>
-          <a class="btn btn-ghost-dark" href="carriers.html">Become a partner carrier</a>
-        </div>
-        <span class="badge-ca">
-          <svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M383.8 351.7c2.5-2.5 105.2-92.4 105.2-92.4l-17.5-7.5c-10-4.9-7.4-11.5-5-17.4 2.4-7.6 20.1-67.3 20.1-67.3s-47.7 10-57.7 12.5c-7.5 2.4-10-2.5-12.5-7.5s-15-32.4-15-32.4-52.6 59.9-55.1 62.3c-10 7.5-20.1 0-17.6-10 0-10 27.6-129.6 27.6-129.6s-30.1 17.4-40.1 22.4c-7.5 5-12.6 5-17.6-5C293.5 72.3 255.9 0 255.9 0s-37.5 72.3-42.5 79.8c-5 10-10 10-17.6 5-10-5-40.1-22.4-40.1-22.4S183.3 182 183.3 192c2.5 10-7.5 17.5-17.6 10-2.5-2.5-55.1-62.3-55.1-62.3S98.1 167 95.6 172s-5 9.9-12.5 7.5C73 177 25.4 167 25.4 167s17.6 59.7 20.1 67.3c2.4 6 5 12.5-5 17.4L23 259.3s102.6 89.9 105.2 92.4c5.1 5 10 7.5 5.1 22.5-5.1 15-10.1 35.1-10.1 35.1s95.2-20.1 105.3-22.6c8.7-.9 18.3 2.5 18.3 12.5S241 512 241 512h30s-5.8-102.7-5.8-112.8 9.5-13.4 18.3-12.5c10 2.5 105.3 22.6 105.3 22.6s-5-20.1-10.1-35.1c-4.9-15-.1-17.5 5.1-22.5z"/></svg>
-          Proudly Canadian owned &amp; operated
-        </span>
-      </div>
+  <section class="hero-v2">
+    <div class="hero-v2__media" aria-hidden="true">
+      <picture>
+        <source srcset="assets/hero-yard.webp" type="image/webp">
+        <img src="assets/hero-yard.jpg" alt="" width="2000" height="1116" decoding="async">
+      </picture>
+    </div>
 
-      <div class="panel" aria-label="Network overview (illustrative)">
-        <div class="chip c1" aria-hidden="true"><b>Live tracking</b> · <span class="ok">On time</span></div>
-        <div class="chip c2" aria-hidden="true">Temp monitored · <span class="ok">In range</span></div>
-
-        <div class="panel-head">
-          <span class="title"><span class="status-dot" aria-hidden="true"></span>Network overview</span>
-          <span class="mono" id="net-clock">00:00:00 UTC</span>
-        </div>
-
-        <div class="panel-body">
-          <svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stylized globe with trucks travelling routes between Toronto, Montréal, Chicago and Monterrey">
-            <defs>
-              <radialGradient id="g-sphere" cx="38%" cy="30%" r="75%">
-                <stop offset="0%" stop-color="#262a32"/>
-                <stop offset="100%" stop-color="#16181d"/>
-              </radialGradient>
-            </defs>
-
-            <!-- globe -->
-            <circle cx="240" cy="150" r="118" fill="url(#g-sphere)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
-            <ellipse class="grat" cx="240" cy="150" rx="78" ry="118"/>
-            <ellipse class="grat" cx="240" cy="150" rx="32" ry="118"/>
-            <ellipse class="grat" cx="240" cy="150" rx="118" ry="78"/>
-            <ellipse class="grat" cx="240" cy="150" rx="118" ry="32"/>
-
-            <!-- routes -->
-            <path class="route-line" d="M205 100 C 180 115, 172 130, 170 150 C 175 180, 195 200, 215 215"/>
-            <path class="route-line alt" d="M205 100 C 235 85, 265 80, 292 88"/>
-
-            <!-- cities -->
-            <circle class="node" cx="205" cy="100" r="5"/>
-            <circle class="node" cx="170" cy="150" r="5"/>
-            <circle class="node" cx="215" cy="215" r="5"/>
-            <circle class="node minor" cx="292" cy="88" r="3.5"/>
-
-            <text class="net-label bright" x="218" y="96">Toronto</text>
-            <text class="net-label bright" x="120" y="146">Chicago</text>
-            <text class="net-label bright" x="228" y="220">Monterrey</text>
-            <text class="net-label" x="302" y="84">Montréal</text>
-
-            <!-- trucks driving the routes -->
-            <g class="truck t1" aria-hidden="true">
-              <g transform="translate(-7,-5) scale(0.62)">
-                <path d="M14 18V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v9a1 1 0 0 0 1 1h2" fill="none" stroke="#ff6b70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14" fill="none" stroke="#ff6b70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="17" cy="18" r="2" fill="none" stroke="#ff6b70" stroke-width="2"/>
-                <circle cx="7" cy="18" r="2" fill="none" stroke="#ff6b70" stroke-width="2"/>
-              </g>
-            </g>
-            <g class="truck t2" aria-hidden="true">
-              <g transform="translate(-7,-5) scale(0.62)">
-                <path d="M14 18V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v9a1 1 0 0 0 1 1h2" fill="none" stroke="#e8eaee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14" fill="none" stroke="#e8eaee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="17" cy="18" r="2" fill="none" stroke="#e8eaee" stroke-width="2"/>
-                <circle cx="7" cy="18" r="2" fill="none" stroke="#e8eaee" stroke-width="2"/>
-              </g>
-            </g>
-          </svg>
-        </div>
-
-        <div class="net-readouts">
-          <div>
-            <span class="mono">Connected fleets</span>
-            <span class="val">45,012</span>
-          </div>
-          <div>
-            <span class="mono">Support window</span>
-            <span class="val">24/7/365</span>
-          </div>
+    <div class="hero-v2__inner">
+      <div class="hero-v2__copy">
+        <span class="hero-v2__eyebrow">Etobicoke, Ontario &middot; Five decades in freight</span>
+        <h1>Over the road, technology driven.</h1>
+        <p class="hero-v2__lede">We move full and partial truckloads across Canada, the USA and Mexico,
+          backed by 45,000 carriers and five decades in freight. You get one person who answers, 24/7/365.</p>
+        <div class="hero-v2__paths">
+          <a class="hero-v2__btn hero-v2__btn--primary" href="shippers.html">Ship freight</a>
+          <a class="hero-v2__btn hero-v2__btn--ghost" href="carriers.html">Haul freight</a>
         </div>
       </div>
+
+      <form class="quote-card" id="quote" action="contact.html" method="get">
+        <div class="quote-card__head">
+          <h2>Freight quote</h2>
+          <span class="quote-card__form-no">Spot rate</span>
+        </div>
+
+        <div class="quote-card__modes" role="radiogroup" aria-label="Shipment mode">
+          <button type="button" class="quote-card__mode" role="radio" aria-checked="true" data-mode="FTL">FTL</button>
+          <button type="button" class="quote-card__mode" role="radio" aria-checked="false" data-mode="LTL">LTL</button>
+        </div>
+        <input type="hidden" name="mode" id="q-mode" value="FTL">
+
+        <div class="quote-card__fields">
+          <div class="field">
+            <label for="q-from">From</label>
+            <input id="q-from" name="from" type="text" inputmode="text" autocomplete="postal-code" placeholder="Zip / Postal">
+          </div>
+          <div class="field">
+            <label for="q-to">To</label>
+            <input id="q-to" name="to" type="text" inputmode="text" autocomplete="postal-code" placeholder="Zip / Postal">
+          </div>
+          <div class="field">
+            <label for="q-date">Pickup</label>
+            <input id="q-date" name="pickup" type="date">
+          </div>
+        </div>
+
+        <p class="lane-strip" id="lane" aria-live="polite">
+          <span id="lane-text">Enter a lane to price it</span>
+          <span class="lane-strip__stamp">24/7/365</span>
+        </p>
+
+        <button class="quote-card__submit" type="submit">Get rates</button>
+
+        <p class="quote-card__foot">
+          Rather talk? <a href="mailto:ship@riteroute.ca">ship@riteroute.ca</a> &middot;
+          <a href="tel:+16474784921">647-478-4921</a>
+        </p>
+      </form>
     </div>
   </section>
 
   <!-- Metrics -->
-  <div class="metrics">
-    <div class="container">
-      <div class="metrics-grid">
-        <div class="metric reveal">
-          <span class="num"><em data-count="45000" data-suffix="+">0</em></span>
-          <span class="label">Connected fleets</span>
-        </div>
-        <div class="metric reveal">
-          <span class="num"><span data-count="50" data-suffix="+">0</span></span>
-          <span class="label">Years in trucking</span>
-        </div>
-        <div class="metric reveal">
-          <span class="num">24/7</span>
-          <span class="label">Human support, 365 days</span>
-        </div>
-        <div class="metric reveal">
-          <span class="num"><span data-count="3">0</span></span>
-          <span class="label">Countries served</span>
-        </div>
+  <div class="rr-metrics">
+    <div class="rr-metrics__grid">
+      <div class="rr-metric">
+        <span class="rr-metric__num">45,000</span>
+        <span class="rr-metric__label">Carriers in the network</span>
+      </div>
+      <div class="rr-metric">
+        <span class="rr-metric__num">50+</span>
+        <span class="rr-metric__label">Years combined experience</span>
+      </div>
+      <div class="rr-metric">
+        <span class="rr-metric__num">24-7-365</span>
+        <span class="rr-metric__label">No call centres, no voicemail</span>
+      </div>
+      <!-- TODO: awaiting a real coverage figure from the client -->
+      <div class="rr-metric rr-metric--todo">
+        <span class="rr-metric__num">&mdash;</span>
+        <span class="rr-metric__label">Coverage stat to confirm</span>
       </div>
     </div>
   </div>
 
-  <!-- Customer promise -->
-  <section class="journey">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">Our customer promise</span>
-        <h2>We keep our promises so you can keep yours</h2>
+  <!-- Trial offer -->
+  <section class="rr-trial">
+    <div class="rr-trial__inner">
+      <div>
+        <span class="rr-trial__eyebrow">Trial offer</span>
+        <h2>Experience the ease. Try us once.</h2>
+        <p>We&rsquo;ll match any price on your North American trucking shipment.
+          If you don&rsquo;t experience the ease, you don&rsquo;t pay.</p>
       </div>
-
-      <div class="promise-grid">
-        <div class="tile reveal">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          </div>
-          <h3>Never close</h3>
-          <p>Available 24-7-365. No call centers. No voicemail. No excuses. One call away when you need us.</p>
-        </div>
-
-        <div class="tile reveal">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <h3>Answer the phone</h3>
-          <p>Real people. Real answers. No endless email threads or phone tag. Just straight talk from our team.</p>
-        </div>
-
-        <div class="tile reveal">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg>
-          </div>
-          <h3>No extra charges</h3>
-          <p>No fuel surcharges. No hidden fees. You pay what we quote.</p>
-        </div>
-
-        <div class="tile reveal">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
-          </div>
-          <h3>Proactive problem solving</h3>
-          <p>When delays happen, and they do, you'll hear from us first on the phone. Not with bad news, but with a proactive solution.</p>
-        </div>
-
-        <div class="tile reveal">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0L6.41 10.54A2 2 0 0 1 4.48 12H2"/></svg>
-          </div>
-          <h3>Real-time pricing</h3>
-          <p>We live in the AI-driven spot market. You get instant, honest market-rate pricing.</p>
-        </div>
+      <div class="rr-trial__aside">
+        <p class="rr-trial__terms">One shipment &middot; Any lane &middot; Price matched</p>
+        <a class="rr-trial__phone" href="tel:+16474784921">647-478-4921</a>
       </div>
     </div>
   </section>
 
-  <!-- Services -->
-  <section>
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">North American Trucking Solutions</span>
-        <h2>One stop for all your trucking needs</h2>
-        <p>If it moves on a truck, we've got a sustainable solution.</p>
-      </div>
+  <!-- North American Trucking Solutions: technology + services -->
+  <section class="rr-solutions">
+    <div class="rr-solutions__inner">
+      <span class="rr-eyebrow">North American trucking solutions</span>
+      <h2>If it moves on a truck, we&rsquo;ve got a solution.</h2>
+      <p class="rr-solutions__lede">One stop for all your North American trucking needs across Canada,
+        the USA and Mexico. Proudly Canadian owned and operated.</p>
 
-      <div class="bento">
-        <div class="tile w2 reveal">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></svg>
-          </div>
-          <h3>Technology-driven</h3>
-          <p>Our second-generation, best-in-class TMS powers everything we do: real-time pricing across all lanes, online LTL partnerships, AI-driven dynamic spot rates, and individual truck tracking in real time.</p>
+      <div class="rr-cols">
+        <div>
+          <p class="rr-col__head">Technology-driven</p>
+          <ul class="rr-list">
+            <li><span>Real-time pricing across all lanes</span></li>
+            <li><span>Online LTL partnerships</span></li>
+            <li><span>AI-driven dynamic spot rates</span></li>
+            <li><span>Individual truck tracking in real time</span></li>
+          </ul>
+          <p class="rr-col__note">Our second-generation, best-in-class TMS powers everything we do.</p>
         </div>
 
-        <div class="tile reveal">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v9a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
-          </div>
-          <h3>FTL, LTL &amp; expedited</h3>
-          <p>Full truckload, less-than-truckload and time-critical freight across every major lane.</p>
-        </div>
-
-        <div class="tile reveal">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
-          </div>
-          <h3>Specialized freight</h3>
-          <p>Temperature control, hazmat and high-value shipments, handled with care and compliance.</p>
-        </div>
-
-        <div class="tile reveal">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7.7c0-.6-.4-1.2-.8-1.5l-6.3-3.9a1.72 1.72 0 0 0-1.7 0l-10.3 6c-.5.2-.9.8-.9 1.4v6.6c0 .5.4 1.2.8 1.5l6.3 3.9a1.72 1.72 0 0 0 1.7 0l10.3-6c.5-.3.9-1 .9-1.5Z"/><path d="M10 21.9V14L2.1 9.1"/><path d="m10 14 11.9-6.9"/><path d="M14 19.8v-8.1"/><path d="M18 17.5V9.4"/></svg>
-          </div>
-          <h3>Drayage &amp; intermodal</h3>
-          <p>Port, rail and yard moves connected seamlessly to the road network.</p>
-        </div>
-
-        <div class="tile reveal">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7l-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg>
-          </div>
-          <h3>Projects &amp; seasonal surges</h3>
-          <p>Capacity that scales when your volume spikes, planned or not.</p>
-        </div>
-
-        <div class="tile reveal">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>
-          </div>
-          <h3>Dedicated routes &amp; drop trailers</h3>
-          <p>Committed lanes and equipment that make your dock run like clockwork.</p>
-        </div>
-
-        <div class="tile reveal">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></svg>
-          </div>
-          <h3>Trade shows</h3>
-          <p>Time-definite delivery and pickup for the shipments that can't miss the floor.</p>
+        <div>
+          <p class="rr-col__head">Our services</p>
+          <ul class="rr-list">
+            <li><span>Full truckload, LTL and expedited freight</span></li>
+            <li><span>Temperature control, hazmat and high-value shipments</span></li>
+            <li><span>Drayage and intermodal</span></li>
+            <li><span>Projects and seasonal surges</span></li>
+            <li><span>Dedicated routes and drop trailers</span></li>
+            <li><span>Trade shows</span></li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Shipment journey: scroll-driven route -->
-  <section class="journey">
+  <section class="journey rr-journey">
     <div class="container">
       <div class="section-head reveal">
         <span class="kicker">Shipment lifecycle</span>
         <h2>Follow one load, dock to door</h2>
-        <p>Scroll the route. This is what every Rite Route shipment looks like.</p>
+        <p>What every Rite Route shipment looks like, from rate to signed POD.</p>
       </div>
 
       <div class="j-track" id="j-track">
         <div class="j-line" aria-hidden="true">
           <div class="j-progress" id="j-progress"></div>
         </div>
-        <div class="j-marker" id="j-marker" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v9a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
-        </div>
+        <div class="j-marker" id="j-marker" aria-hidden="true"></div>
 
         <article class="waypoint" data-wp>
-          <span class="wp-code">Stop 1 of 5 · Origin</span>
+          <span class="wp-code">01 · Origin</span>
           <h3>Quoted in real time</h3>
-          <p>Your lane and freight profile hit the market as it is right now. Live pricing comes back in minutes, built on up-to-the-minute conditions, not last year's contract.</p>
+          <p>Your lane and freight profile hit the market as it stands right now. Live pricing comes back in minutes, built on today&rsquo;s conditions rather than last year&rsquo;s contract.</p>
+          <span class="wp-chip">Rate confirmation issued</span>
         </article>
 
         <article class="waypoint" data-wp>
-          <span class="wp-code">Stop 2 of 5 · Dispatch</span>
+          <span class="wp-code">02 · Dispatch</span>
           <h3>Matched across 45,000+ fleets</h3>
-          <p>The platform finds the right truck, whether FTL, LTL, expedited or final mile, and dispatches it with the full shipment file. No phone tag, no rekeying, no human error.</p>
+          <p>The platform finds the right truck across full truckload, LTL and expedited, then dispatches it with the complete shipment file already attached. Nobody rekeys anything.</p>
+          <span class="wp-chip">Carrier assigned</span>
         </article>
 
         <article class="waypoint" data-wp>
-          <span class="wp-code">Stop 3 of 5 · In transit</span>
+          <span class="wp-code">03 · In transit</span>
           <h3>Tracked to the minute</h3>
-          <p>Complete visibility from the connected fleet: position, ETA and exceptions in real time. You watch it move; nobody makes a check call.</p>
+          <p>Position, ETA and exceptions update in real time. You watch the load move, so nobody has to make a check call.</p>
+          <span class="wp-chip">Tracking link sent</span>
         </article>
 
         <article class="waypoint" data-wp>
-          <span class="wp-code">Stop 4 of 5 · Border</span>
+          <span class="wp-code">04 · Border</span>
           <h3>Cross-border, cleared</h3>
-          <p>Canada, the USA and Mexico are one network to us. Customs paperwork is prepared and filed ahead of the wheels. Five decades of border experience, automated.</p>
+          <p>Canada, the USA and Mexico are one network to us. Customs paperwork is prepared and filed ahead of the wheels, backed by decades of border experience.</p>
+          <span class="wp-chip">Customs filed</span>
         </article>
 
         <article class="waypoint" data-wp>
-          <span class="wp-code">Stop 5 of 5 · Delivered</span>
+          <span class="wp-code">05 · Delivered</span>
           <h3>Proof of delivery, instantly</h3>
-          <p>The signed POD lands in your inbox the moment the freight lands on the dock. And if anything ever needs a human, yours is a call, text or email away, 24/7/365.</p>
+          <p>The signed POD lands in your inbox the moment the freight lands on the dock. If anything needs a human, yours is a call, text or email away, 24-7-365.</p>
+          <span class="wp-chip">Signed POD returned</span>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Trial offer -->
-  <section>
-    <div class="container">
-      <div class="trial reveal">
-        <div>
-          <span class="kicker">Trial offer</span>
-          <h2>Experience the ease. Try us once.</h2>
-          <p><strong>We'll match any price on your North American trucking shipment.</strong> If you don't experience the ease, you don't pay.</p>
+  <!-- Insights: case studies and news -->
+  <section class="rr-insights">
+    <div class="rr-insights__inner">
+      <span class="rr-eyebrow">Insights</span>
+      <h2>Straight talk from inside the industry.</h2>
+      <p class="rr-insights__lede">Commentary on trucking, freight and the supply chain, written by people
+        who have spent decades living it.</p>
+
+      <div class="rr-insights__grid">
+
+        <!-- FEATURE SLOT: reserved for a real case study. Left visibly pending
+             rather than populated with an invented client result. -->
+        <div class="rr-feature rr-feature--pending">
+          <span class="rr-tag">Case study &middot; Slot reserved</span>
+          <div class="rr-shot"><span>Photo</span></div>
+          <p class="rr-feature__title">Your first customer story goes here.</p>
+          <p class="rr-feature__excerpt">A named shipper, the lane, the problem and the measurable
+            result. This needs real client data and their permission to publish.</p>
         </div>
-        <div class="trial-cta">
-          <a class="btn btn-red" href="tel:+16474784921">Call (647) 478-4921</a>
-          <span class="note">Or <a href="contact.html">request a quote online</a>. It takes two minutes.</span>
+
+        <div class="rr-tier">
+          <a class="rr-card" href="news.html">
+            <span class="rr-tag">Blog post</span>
+            <div class="rr-shot"><span>Photo</span></div>
+            <p class="rr-card__title">Prepare for sticker shock in the warehouse market</p>
+            <p class="rr-card__meta">4 minute read</p>
+          </a>
+          <a class="rr-card" href="news.html">
+            <span class="rr-tag">News</span>
+            <div class="rr-shot"><span>Photo</span></div>
+            <p class="rr-card__title">Fight the inside jobs of cargo theft</p>
+            <p class="rr-card__meta">3 minute read</p>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="cta">
-    <div class="container reveal">
-      <span class="kicker">Get started</span>
-      <h2>Your competitive advantage starts here.</h2>
-      <p>Five decades of trucking, one modern platform. Get a quote, or plug your fleet into the network.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-red" href="contact.html">Request a quote</a>
-        <a class="btn btn-ghost-dark" href="carriers.html">Become a partner carrier</a>
+      <div class="rr-insights__foot">
+        <p>Ready to move something? Get a rate on your lane.</p>
+        <a class="hero-v2__btn hero-v2__btn--primary" href="#quote">Get a freight quote</a>
       </div>
     </div>
   </section>
@@ -369,7 +286,7 @@
             <small>Supply Chain Solutions</small>
           </span>
         </a>
-        <p class="footer-tag">Proudly Canadian owned and operated. Technology-driven logistics for all of North America.</p>
+        <p class="footer-tag">Technology-driven logistics for all of North America.</p>
         <p class="footer-flags"><img src="assets/flags-coverage.png" alt="Proudly serving Canada, the USA and Mexico"></p>
       </div>
       <div>
@@ -385,7 +302,6 @@
         <h4>Get started</h4>
         <ul class="footer-links">
           <li><a href="contact.html">Request a quote</a></li>
-          <li><a href="contact.html">LTL rate portal</a></li>
           <li><a href="carriers.html">Become a partner carrier</a></li>
           <li><a href="contact.html">Contact us</a></li>
         </ul>
@@ -415,5 +331,6 @@
 
 <script src="js/main.js"></script>
 <script src="js/futuristic.js"></script>
+<script src="js/quote.js"></script>
 </body>
 </html>

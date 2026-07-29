@@ -41,17 +41,6 @@
   } else {
     counters.forEach(animateCount);
   }
-
-  // Live UTC clock in the network panel header
-  var clock = document.getElementById("net-clock");
-  if (clock) {
-    function tick() {
-      var d = new Date();
-      clock.textContent = d.toISOString().slice(11, 19) + " UTC";
-    }
-    tick();
-    setInterval(tick, 1000);
-  }
 })();
 
 /* Shipment journey: scroll-driven marker along the route line */
@@ -99,5 +88,9 @@
 
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll, { passive: true });
+  // images decoding after DOMContentLoaded shift the track, and update() only
+  // recomputes on scroll/resize — so the rail could sit stale until the user
+  // moved. Recompute once everything has settled.
+  window.addEventListener("load", onScroll);
   update();
 })();
