@@ -8,3 +8,8 @@ node_modules/
 !.claude/skills
 .claude/skills/*
 !.claude/skills/frontend-design
+
+# Skills installed via `npx skills add`. skills-lock.json pins them, so the
+# content is restorable with `npx skills experimental_install` rather than
+# vendored into this repo.
+.agents/

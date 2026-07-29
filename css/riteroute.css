@@ -34,6 +34,29 @@
 
   --rr-gutter: clamp(1.25rem, 4vw, 2.5rem);
   --rr-measure: 1240px;
+
+  /* motion. The page had no easing vocabulary, only bare `ease` at assorted
+     durations. Two tokens so everything shares one curve. */
+  --rr-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --rr-press: 120ms;
+
+  /* --- type scale ---------------------------------------------------------
+     The page had drifted to 18 distinct sizes, including three section
+     headings at 2.9 / 2.85 / 2.75rem — close enough to read as a mistake
+     rather than a hierarchy — and label text down at 9px. One scale now;
+     nothing sits below 10px. */
+  --fs-label-sm: 0.625rem;   /* 10px — floor for tracked uppercase mono */
+  --fs-label: 0.6875rem;     /* 11px */
+  --fs-label-lg: 0.75rem;    /* 12px */
+  --fs-caption: 0.8125rem;   /* 13px */
+  --fs-body-sm: 0.9375rem;   /* 15px */
+  --fs-body: 1rem;
+  --fs-body-lg: clamp(1rem, 1.15vw, 1.125rem);
+  --fs-title-sm: 1.0625rem;
+  --fs-title: clamp(1.15rem, 1.9vw, 1.5rem);
+  --fs-title-lg: clamp(1.35rem, 2.4vw, 1.95rem);
+  --fs-section: clamp(1.9rem, 3.6vw, 2.85rem);
+  --fs-display: clamp(2.5rem, 5.2vw, 4.15rem);
 }
 
 /* ==========================================================================
@@ -48,7 +71,7 @@
 }
 .rr-header .site-nav a {
   color: var(--rr-ink);
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -62,7 +85,7 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: var(--fs-label-lg);
 }
 .rr-header .header-cta:hover { background: var(--rr-red-ink); }
 .rr-header .nav-toggle span { background: var(--rr-ink); }
@@ -95,10 +118,18 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* bias toward the trailer and the pale sky above it */
-  object-position: 54% 62%;
+  /* Keep the headline on open sky and drop the rig into the lower band.
+     The hero is ~2.8:1 against a 16:9 source, so only the Y value does any
+     work here — there is no horizontal overflow to shift. */
+  object-position: 50% 38%;
   display: block;
+  /* a 300KB photo decoding async pops in against the paper background;
+     fade it instead. Falls back to visible if the script never runs. */
+  opacity: 0;
+  transition: opacity 400ms var(--rr-ease-out);
 }
+.hero-v2__media img.is-loaded,
+.no-js .hero-v2__media img { opacity: 1; }
 /* Light scrim. Lifts the left column where the yard darkens into buildings,
    and dissolves the frame edges into the page. The sky itself is left alone. */
 .hero-v2__media::after {
@@ -118,17 +149,18 @@
   margin-inline: auto;
   padding: clamp(2.75rem, 5vw, 4rem) var(--rr-gutter) clamp(3rem, 6vw, 4.5rem);
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 25.5rem);
-  gap: clamp(2rem, 5vw, 4rem);
+  /* single column now the quote bar sits inline under the lede — the photo is
+     no longer occluded by a floating card */
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
-  min-height: min(66vh, 39rem);
+  min-height: min(72vh, 42rem);
 }
 
 /* --- left column -------------------------------------------------------- */
 
 .hero-v2__eyebrow {
   font-family: var(--rr-data);
-  font-size: 0.6875rem;
+  font-size: var(--fs-label);
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -148,7 +180,7 @@
 .hero-v2 h1 {
   font-family: var(--rr-display);
   font-weight: 640;
-  font-size: clamp(2.5rem, 5.2vw, 4.15rem);
+  font-size: var(--fs-display);
   line-height: 1.03;
   letter-spacing: -0.022em;
   color: var(--rr-ink);
@@ -160,7 +192,7 @@
    made it four competing accents. */
 
 .hero-v2__lede {
-  font-size: clamp(1.03rem, 1.2vw, 1.1875rem);
+  font-size: var(--fs-body-lg);
   line-height: 1.62;
   color: #33383f;
   max-width: 48ch;
@@ -168,187 +200,147 @@
 }
 
 /* dual path: shipper and carrier split at the top, as Schneider and Echo do */
-.hero-v2__paths { display: flex; flex-wrap: wrap; gap: 0.7rem; }
-.hero-v2__btn {
-  font-family: var(--rr-body);
-  font-size: 0.9375rem;
+/* secondary paths. The quote bar is the primary action now, so these step
+   back to text links rather than competing as a second row of buttons. */
+.hero-v2__paths {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  margin-top: 1.6rem;
+}
+.hero-v2__paths a {
+  font-size: var(--fs-body-sm);
   font-weight: 600;
-  padding: 0.9rem 1.5rem;
-  border-radius: 3px;
-  border: 1px solid transparent;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-}
-.hero-v2__btn--primary { background: var(--rr-red); color: #fff; }
-.hero-v2__btn--primary:hover { background: var(--rr-red-ink); }
-.hero-v2__btn--ghost {
-  background: rgba(255, 255, 255, 0.88);
   color: var(--rr-ink);
-  border-color: #bdb9b1;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rr-rule);
+  padding-bottom: 0.15rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
-.hero-v2__btn--ghost:hover { border-color: var(--rr-ink); background: #fff; }
+.hero-v2__paths a:hover { color: var(--rr-red); border-bottom-color: var(--rr-red); }
 
 /* ==========================================================================
-   Signature: the quote card as a rate confirmation
+   Quote bar
+   Was a floating card with eight stacked bands, a fake rubber stamp and mono
+   set everywhere. Mono is for data, so it is now confined to the field
+   labels; values are set in the body face at a readable size. One band, one
+   primary action, and the photograph is no longer occluded.
    ========================================================================== */
 
-.quote-card {
+.quote-bar {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
   background: #fff;
-  color: var(--rr-ink);
-  border-radius: 3px;
   border: 1px solid var(--rr-rule);
-  box-shadow: 0 1px 0 rgba(20, 22, 26, 0.04), 0 22px 48px -20px rgba(20, 22, 26, 0.28);
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(20, 22, 26, 0.03), 0 14px 34px -20px rgba(20, 22, 26, 0.32);
+  max-width: 46rem;
   overflow: hidden;
 }
 
-.quote-card__head {
+/* segmented FTL / LTL */
+.qb-modes {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.85rem 1.15rem;
-  background: var(--rr-red);
+  align-self: center;
+  margin: 0.55rem 0 0.55rem 0.55rem;
+  border: 1px solid var(--rr-rule);
+  border-radius: 3px;
+  overflow: hidden;
+  flex: 0 0 auto;
 }
-.quote-card__head h2 {
-  font-family: var(--rr-data);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin: 0;
-  color: #fff;
-}
-.quote-card__form-no {
-  font-family: var(--rr-data);
-  font-size: 0.625rem;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.75);
-  white-space: nowrap;
-}
-
-/* mode tabs: FTL / LTL, the same split the live widget uses */
-.quote-card__modes { display: flex; border-bottom: 1px solid var(--rr-rule); }
-.quote-card__mode {
-  flex: 1;
+.qb-mode {
   appearance: none;
-  background: transparent;
   border: 0;
-  border-bottom: 2px solid transparent;
-  padding: 0.85rem 0.5rem;
+  background: transparent;
+  padding: 0.5rem 0.7rem;
   font-family: var(--rr-data);
-  font-size: 0.75rem;
+  font-size: var(--fs-label-sm);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: var(--rr-steel);
   cursor: pointer;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease,
+              transform var(--rr-press) var(--rr-ease-out);
 }
-.quote-card__mode + .quote-card__mode { border-left: 1px solid var(--rr-rule); }
-.quote-card__mode[aria-checked="true"] {
-  color: var(--rr-ink);
-  border-bottom-color: var(--rr-red);
-}
-.quote-card__mode:hover { color: var(--rr-ink); }
+.qb-mode:active { transform: scale(0.96); }
+.qb-mode + .qb-mode { border-left: 1px solid var(--rr-rule); }
+.qb-mode[aria-checked="true"] { background: var(--rr-ink); color: #fff; }
 
-/* ruled fields, laid out the way a rate confirmation is */
-.quote-card__fields { padding: 0.3rem 1.15rem 0; }
-.field {
-  display: grid;
-  grid-template-columns: 4.75rem 1fr;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.72rem 0;
-  border-bottom: 1px solid var(--rr-rule);
+/* fields */
+.qb-field {
+  flex: 1 1 8.5rem;
+  min-width: 0;
+  padding: 0.62rem 0.9rem;
+  border-left: 1px solid var(--rr-rule);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.field > label {
+.qb-modes + input + .qb-field { border-left: 1px solid var(--rr-rule); }
+.qb-field label {
   font-family: var(--rr-data);
-  font-size: 0.625rem;
+  font-size: var(--fs-label-sm);
   font-weight: 500;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--rr-steel);
+  margin-bottom: 0.15rem;
 }
-.field input {
-  font-family: var(--rr-data);
-  font-size: 0.9375rem;
+/* values in the body face, not mono — mono placeholders read as a terminal */
+.qb-field input {
+  font-family: var(--rr-body);
+  font-size: var(--fs-body);
+  font-weight: 500;
   color: var(--rr-ink);
   background: transparent;
   border: 0;
-  padding: 0.15rem 0;
+  padding: 0;
   width: 100%;
-  letter-spacing: 0.04em;
+  min-width: 0;
 }
-.field input::placeholder { color: #b5b2aa; letter-spacing: 0.06em; }
-.field input:focus { outline: none; }
-.field:focus-within > label { color: var(--rr-red); }
-.field:focus-within { border-bottom-color: var(--rr-ink); }
-
-/* the lane, echoed back as freight notation */
-.lane-strip {
+.qb-field input::placeholder { color: #a8a49c; font-weight: 400; }
+.qb-field input:focus { outline: none; }
+.qb-field:focus-within label { color: var(--rr-red); }
+/* strip the native date control's chrome so it matches the text fields */
+.qb-field--date input { font-variant-numeric: tabular-nums; }
+.qb-field--date input::-webkit-calendar-picker-indicator {
+  opacity: 0.45;
+  cursor: pointer;
   margin: 0;
-  padding: 0.75rem 1.15rem;
-  background: rgba(20, 22, 26, 0.04);
-  border-top: 1px solid var(--rr-rule);
-  font-family: var(--rr-data);
-  /* sized so a full lane notation clears the stamp on one line */
-  font-size: 0.65rem;
-  letter-spacing: 0.045em;
-  color: var(--rr-steel);
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  /* nowrap keeps the stamp pinned right; the lane text wraps inside its own
-     span instead of pushing the stamp onto a second line */
-  flex-wrap: nowrap;
-  min-height: 2.85rem;
 }
-.lane-strip > span:first-child { flex: 1 1 auto; min-width: 0; }
-.lane-strip__arrow { color: var(--rr-red); font-weight: 600; }
-.lane-strip b { color: var(--rr-ink); font-weight: 600; }
-/* rubber stamp */
-.lane-strip__stamp {
-  margin-left: auto;
-  border: 1.5px solid var(--rr-red);
-  color: var(--rr-red);
-  border-radius: 2px;
-  padding: 0.16rem 0.44rem;
-  font-size: 0.5625rem;
-  font-weight: 600;
-  letter-spacing: 0.13em;
-  transform: rotate(-1.5deg);
-  white-space: nowrap;
-}
+.qb-field--date input::-webkit-datetime-edit { color: var(--rr-ink); }
+.qb-field--date input:invalid::-webkit-datetime-edit { color: #a8a49c; }
 
-.quote-card__submit {
-  display: block;
-  width: 100%;
+.qb-submit {
+  flex: 0 0 auto;
   appearance: none;
   border: 0;
-  background: var(--rr-ink);
+  background: var(--rr-red);
   color: #fff;
   font-family: var(--rr-body);
-  font-size: 0.9375rem;
+  font-size: var(--fs-body-sm);
   font-weight: 600;
-  padding: 1.02rem 1rem;
+  padding: 0 1.5rem;
+  min-height: 3.9rem;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease, transform var(--rr-press) var(--rr-ease-out);
 }
-.quote-card__submit:hover { background: #000; }
+.qb-submit:hover { background: var(--rr-red-ink); }
+.qb-submit:active { transform: scale(0.985); }
 
-.quote-card__foot {
-  padding: 0.78rem 1.15rem;
-  border-top: 1px solid var(--rr-rule);
+/* the lane, echoed back as broker notation — only once there is one */
+.lane-line {
+  margin: 0.85rem 0 0;
+  min-height: 1.1rem;
   font-family: var(--rr-data);
-  font-size: 0.625rem;
-  letter-spacing: 0.08em;
+  font-size: var(--fs-label-sm);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--rr-steel);
-  text-align: center;
 }
-.quote-card__foot a { color: var(--rr-ink); text-decoration: underline; text-underline-offset: 2px; }
-.quote-card__foot a:hover { color: var(--rr-red); }
+.lane-line b { color: var(--rr-ink); font-weight: 600; }
+.lane-strip__arrow { color: var(--rr-red); font-weight: 600; }
 
 /* --- visible keyboard focus --------------------------------------------- */
 .hero-v2 a:focus-visible,
@@ -382,7 +374,7 @@
   display: block;
   font-family: var(--rr-display);
   font-weight: 640;
-  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+  font-size: var(--fs-section);
   line-height: 1;
   letter-spacing: -0.02em;
   color: var(--rr-ink);
@@ -391,7 +383,7 @@
   display: block;
   margin-top: 0.6rem;
   font-family: var(--rr-data);
-  font-size: 0.625rem;
+  font-size: var(--fs-label-sm);
   font-weight: 500;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -423,7 +415,7 @@
 }
 .rr-trial__eyebrow {
   font-family: var(--rr-data);
-  font-size: 0.6875rem;
+  font-size: var(--fs-label);
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -434,14 +426,14 @@
 .rr-trial h2 {
   font-family: var(--rr-display);
   font-weight: 640;
-  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  font-size: var(--fs-section);
   line-height: 1.08;
   letter-spacing: -0.02em;
   color: #fff;
   margin: 0 0 1rem;
 }
 .rr-trial p {
-  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  font-size: var(--fs-body-lg);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.92);
   margin: 0;
@@ -455,7 +447,7 @@
 }
 .rr-trial__terms {
   font-family: var(--rr-data);
-  font-size: 0.6875rem;
+  font-size: var(--fs-label);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.78);
@@ -466,7 +458,7 @@
   display: inline-block;
   font-family: var(--rr-display);
   font-weight: 640;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: var(--fs-title);
   letter-spacing: -0.01em;
   color: #fff;
   text-decoration: none;
@@ -492,7 +484,7 @@
 }
 .rr-eyebrow {
   font-family: var(--rr-data);
-  font-size: 0.6875rem;
+  font-size: var(--fs-label);
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -511,7 +503,7 @@
 .rr-solutions h2 {
   font-family: var(--rr-display);
   font-weight: 640;
-  font-size: clamp(1.9rem, 3.6vw, 2.85rem);
+  font-size: var(--fs-section);
   line-height: 1.08;
   letter-spacing: -0.022em;
   color: var(--rr-ink);
@@ -519,7 +511,7 @@
   max-width: 20ch;
 }
 .rr-solutions__lede {
-  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  font-size: var(--fs-body-lg);
   line-height: 1.62;
   color: #33383f;
   max-width: 52ch;
@@ -534,7 +526,7 @@
 }
 .rr-col__head {
   font-family: var(--rr-data);
-  font-size: 0.6875rem;
+  font-size: var(--fs-label);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -544,7 +536,7 @@
   margin: 0 0 0.25rem;
 }
 .rr-col__note {
-  font-size: 0.9375rem;
+  font-size: var(--fs-body-sm);
   line-height: 1.6;
   color: var(--rr-steel);
   margin: 1rem 0 0.25rem;
@@ -559,7 +551,7 @@
 .rr-list li {
   padding: 0.95rem 0;
   border-bottom: 1px solid var(--rr-rule);
-  font-size: 1rem;
+  font-size: var(--fs-body);
   line-height: 1.45;
   color: var(--rr-ink);
 }
@@ -567,7 +559,7 @@
 .rr-list li small {
   display: block;
   margin-top: 0.25rem;
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--rr-steel);
   line-height: 1.5;
 }
@@ -588,6 +580,27 @@
   padding-block: clamp(3.5rem, 7vw, 6rem);
 }
 .rr-journey .container { max-width: var(--rr-measure); }
+/* the journey heading is still styled by the legacy sheet, which landed it at
+   43.2px against every other section heading at 45.6px — close enough to look
+   like a mistake. Pull it onto the scale. */
+.rr-journey .section-head h2 {
+  font-family: var(--rr-display);
+  font-size: var(--fs-section);
+  font-weight: 640;
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  color: var(--rr-ink);
+}
+.rr-journey .section-head .kicker {
+  font-family: var(--rr-data);
+  font-size: var(--fs-label);
+  letter-spacing: 0.15em;
+  color: var(--rr-steel);
+}
+.rr-journey .section-head p {
+  font-size: var(--fs-body-lg);
+  color: #33383f;
+}
 
 .rr-journey .j-track { padding-left: 0; }
 
@@ -643,7 +656,7 @@
   grid-column: 1;
   grid-row: 1 / span 3;
   font-family: var(--rr-data);
-  font-size: 0.625rem;
+  font-size: var(--fs-label-sm);
   font-weight: 500;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -659,7 +672,7 @@
   grid-column: 2;
   font-family: var(--rr-display);
   font-weight: 640;
-  font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+  font-size: var(--fs-title);
   letter-spacing: -0.015em;
   line-height: 1.2;
   color: var(--rr-ink);
@@ -667,7 +680,7 @@
 }
 .rr-journey .waypoint p {
   grid-column: 2;
-  font-size: 1rem;
+  font-size: var(--fs-body);
   line-height: 1.6;
   color: #33383f;
   max-width: 62ch;
@@ -685,7 +698,7 @@
   border-radius: 0;
   padding: 0.1rem 0 0.1rem 0.7rem;
   font-family: var(--rr-data);
-  font-size: 0.625rem;
+  font-size: var(--fs-label-sm);
   font-weight: 500;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -724,7 +737,7 @@
 .rr-insights h2 {
   font-family: var(--rr-display);
   font-weight: 640;
-  font-size: clamp(1.9rem, 3.6vw, 2.85rem);
+  font-size: var(--fs-section);
   line-height: 1.08;
   letter-spacing: -0.022em;
   color: var(--rr-ink);
@@ -732,7 +745,7 @@
   max-width: 22ch;
 }
 .rr-insights__lede {
-  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  font-size: var(--fs-body-lg);
   line-height: 1.62;
   color: #33383f;
   max-width: 54ch;
@@ -778,7 +791,7 @@
 .rr-shot span {
   position: relative;
   font-family: var(--rr-data);
-  font-size: 0.5625rem;
+  font-size: var(--fs-label-sm);
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -796,7 +809,7 @@
 }
 .rr-card .rr-shot { margin-top: 0.35rem; }
 .rr-card__title {
-  font-size: 1.0625rem;
+  font-size: var(--fs-title-sm);
   font-weight: 600;
   line-height: 1.32;
   color: var(--rr-ink);
@@ -807,7 +820,7 @@
 .rr-card__meta {
   margin: 0.6rem 0 0;
   font-family: var(--rr-data);
-  font-size: 0.5625rem;
+  font-size: var(--fs-label-sm);
   letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--rr-steel);
@@ -817,7 +830,7 @@
 .rr-tag {
   display: inline-block;
   font-family: var(--rr-data);
-  font-size: 0.625rem;
+  font-size: var(--fs-label-sm);
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -835,7 +848,7 @@
 .rr-feature__title {
   font-family: var(--rr-display);
   font-weight: 640;
-  font-size: clamp(1.35rem, 2.4vw, 1.95rem);
+  font-size: var(--fs-title-lg);
   line-height: 1.18;
   letter-spacing: -0.018em;
   color: var(--rr-ink);
@@ -843,7 +856,7 @@
 }
 .rr-feature:hover .rr-feature__title { color: var(--rr-red); }
 .rr-feature__excerpt {
-  font-size: 1rem;
+  font-size: var(--fs-body);
   line-height: 1.6;
   color: #33383f;
   margin: 0 0 1.1rem;
@@ -851,7 +864,7 @@
 }
 .rr-feature__more {
   font-family: var(--rr-data);
-  font-size: 0.6875rem;
+  font-size: var(--fs-label);
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -883,7 +896,7 @@
 }
 .rr-index__item .rr-tag { margin-bottom: 0.45rem; color: var(--rr-steel); }
 .rr-index__title {
-  font-size: 1.0625rem;
+  font-size: var(--fs-title-sm);
   font-weight: 600;
   line-height: 1.3;
   color: var(--rr-ink);
@@ -904,7 +917,7 @@
 }
 .rr-insights__foot p {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--fs-body);
   color: #33383f;
 }
 
@@ -949,15 +962,21 @@
     background:
       linear-gradient(to bottom, rgba(247, 246, 243, 0.9) 0%, rgba(247, 246, 243, 0.72) 40%, var(--rr-paper) 88%);
   }
-  .quote-card { max-width: 26rem; }
 }
 
 @media (max-width: 520px) {
   .field { grid-template-columns: 1fr; gap: 0.15rem; }
   .lane-strip__stamp { margin-left: 0; }
-  .hero-v2__paths .hero-v2__btn { flex: 1 1 100%; text-align: center; }
+  .quote-bar { flex-direction: column; align-items: stretch; }
+  .qb-field { border-left: 0; border-top: 1px solid var(--rr-rule); }
+  .qb-modes { align-self: flex-start; }
+  .qb-submit { min-height: 3.2rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-v2 *, .rr-header * { transition: none !important; }
+  /* gentler, not zero: colour and opacity still cross-fade, but nothing
+     translates or scales */
+  .qb-mode:active,
+  .qb-submit:active { transform: none; }
+  .hero-v2__media img { transition: opacity 200ms linear; }
 }
