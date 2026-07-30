@@ -55,51 +55,38 @@
         <h1>Over the road, technology driven.</h1>
         <p class="hero-v2__lede">We move full and partial truckloads across Canada, the USA and Mexico,
           backed by 45,000 carriers and five decades in freight. You get one person who answers, 24/7/365.</p>
-        <div class="hero-v2__paths">
-          <a class="hero-v2__btn hero-v2__btn--primary" href="shippers.html">Ship freight</a>
-          <a class="hero-v2__btn hero-v2__btn--ghost" href="carriers.html">Haul freight</a>
-        </div>
-      </div>
 
-      <form class="quote-card" id="quote" action="contact.html" method="get">
-        <div class="quote-card__head">
-          <h2>Freight quote</h2>
-          <span class="quote-card__form-no">Spot rate</span>
-        </div>
+        <form class="quote-bar" id="quote" action="contact.html" method="get">
+          <div class="qb-modes" role="radiogroup" aria-label="Shipment mode">
+            <button type="button" class="qb-mode" role="radio" aria-checked="true" data-mode="FTL">FTL</button>
+            <button type="button" class="qb-mode" role="radio" aria-checked="false" data-mode="LTL">LTL</button>
+          </div>
+          <input type="hidden" name="mode" id="q-mode" value="FTL">
 
-        <div class="quote-card__modes" role="radiogroup" aria-label="Shipment mode">
-          <button type="button" class="quote-card__mode" role="radio" aria-checked="true" data-mode="FTL">FTL</button>
-          <button type="button" class="quote-card__mode" role="radio" aria-checked="false" data-mode="LTL">LTL</button>
-        </div>
-        <input type="hidden" name="mode" id="q-mode" value="FTL">
-
-        <div class="quote-card__fields">
-          <div class="field">
+          <div class="qb-field">
             <label for="q-from">From</label>
-            <input id="q-from" name="from" type="text" inputmode="text" autocomplete="postal-code" placeholder="Zip / Postal">
+            <input id="q-from" name="from" type="text" autocomplete="postal-code" placeholder="Postal or ZIP">
           </div>
-          <div class="field">
+          <div class="qb-field">
             <label for="q-to">To</label>
-            <input id="q-to" name="to" type="text" inputmode="text" autocomplete="postal-code" placeholder="Zip / Postal">
+            <input id="q-to" name="to" type="text" autocomplete="postal-code" placeholder="Postal or ZIP">
           </div>
-          <div class="field">
+          <div class="qb-field qb-field--date">
             <label for="q-date">Pickup</label>
             <input id="q-date" name="pickup" type="date">
           </div>
-        </div>
 
-        <p class="lane-strip" id="lane" aria-live="polite">
-          <span id="lane-text">Enter a lane to price it</span>
-          <span class="lane-strip__stamp">24/7/365</span>
-        </p>
+          <button class="qb-submit" type="submit">Get rates</button>
+        </form>
 
-        <button class="quote-card__submit" type="submit">Get rates</button>
+        <p class="lane-line" id="lane" aria-live="polite"><span id="lane-text"></span></p>
 
-        <p class="quote-card__foot">
-          Rather talk? <a href="mailto:ship@riteroute.ca">ship@riteroute.ca</a> &middot;
+        <div class="hero-v2__paths">
+          <a href="shippers.html">Ship freight</a>
+          <a href="carriers.html">Haul freight</a>
           <a href="tel:+16474784921">647-478-4921</a>
-        </p>
-      </form>
+        </div>
+      </div>
     </div>
   </section>
 

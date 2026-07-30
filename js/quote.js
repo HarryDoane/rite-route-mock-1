@@ -9,7 +9,7 @@
   var card = document.getElementById("quote");
   if (!card) return;
 
-  var modes = card.querySelectorAll(".quote-card__mode");
+  var modes = card.querySelectorAll(".qb-mode");
   var modeField = document.getElementById("q-mode");
   var from = document.getElementById("q-from");
   var to = document.getElementById("q-to");
@@ -20,7 +20,7 @@
                 "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
   function currentMode() {
-    var active = card.querySelector('.quote-card__mode[aria-checked="true"]');
+    var active = card.querySelector('.qb-mode[aria-checked="true"]');
     return active ? active.getAttribute("data-mode") : "FTL";
   }
 
@@ -42,7 +42,7 @@
     var mode = currentMode();
 
     if (!a && !b) {
-      laneText.textContent = "Enter a lane to price it";
+      laneText.textContent = "";
       return;
     }
 
@@ -62,6 +62,8 @@
       Array.prototype.forEach.call(modes, function (b) {
         b.setAttribute("aria-checked", b === btn ? "true" : "false");
       });
+      // drives the sliding indicator in css
+      btn.parentNode.setAttribute("data-mode", btn.getAttribute("data-mode"));
       if (modeField) modeField.value = btn.getAttribute("data-mode");
       render();
     });
@@ -72,4 +74,16 @@
   });
 
   render();
+})();
+
+/* Fade the hero photo in once it has actually decoded, so it doesn't pop
+   against the paper background. */
+(function () {
+  "use strict";
+  var img = document.querySelector(".hero-v2__media img");
+  if (!img) return;
+  function show() { img.classList.add("is-loaded"); }
+  if (img.complete && img.naturalWidth) show();
+  else img.addEventListener("load", show, { once: true });
+  img.addEventListener("error", show, { once: true });
 })();

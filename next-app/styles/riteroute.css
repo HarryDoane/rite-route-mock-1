@@ -28,9 +28,9 @@
      Fonts kit and change --rr-display / --rr-body to:
        altivo, "Archivo", sans-serif
      --------------------------------------------------------------------- */
-  --rr-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --rr-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --rr-data: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --rr-display: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --rr-body: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --rr-data: var(--font-plex-mono), ui-monospace, Menlo, monospace;
 
   --rr-gutter: clamp(1.25rem, 4vw, 2.5rem);
   --rr-measure: 1240px;
