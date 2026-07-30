@@ -17,7 +17,7 @@
 <header class="site-header rr-header">
   <div class="container header-inner">
     <a class="brand" href="index.html">
-      <img src="assets/favicon.png" alt="">
+      <img class="brand-mark" src="assets/rr-mark.png" alt="Rite Route" width="243" height="192">
       <span class="wordmark">
         <b>Rite<span>Route</span></b>
         <small>Supply Chain Solutions</small>
@@ -41,12 +41,13 @@
 <main>
 
   <!-- Hero -->
-  <section class="hero-v2">
+  <section class="hero-v2 hero-v2--dark">
     <div class="hero-v2__media" aria-hidden="true">
-      <picture>
-        <source srcset="assets/hero-yard.webp" type="image/webp">
-        <img src="assets/hero-yard.jpg" alt="" width="2000" height="1116" decoding="async">
-      </picture>
+      <!-- Static hero still with a very slow, seamless Ken Burns drift applied
+           in CSS (see .hero-v2__img). It never restarts and honours
+           prefers-reduced-motion. -->
+      <img class="hero-v2__img" src="assets/hero-highway.jpg" alt=""
+           width="2000" height="1116" fetchpriority="high" decoding="async">
     </div>
 
     <div class="hero-v2__inner">
@@ -267,7 +268,7 @@
     <div class="footer-grid">
       <div>
         <a class="brand" href="index.html">
-          <img src="assets/favicon.png" alt="" style="height:36px">
+          <img src="assets/rr-mark.png" alt="Rite Route" style="height:36px">
           <span class="wordmark">
             <b>Rite<span>Route</span></b>
             <small>Supply Chain Solutions</small>
