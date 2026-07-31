@@ -20,6 +20,7 @@ import SiteFooter from '@/components/SiteFooter';
 
 import '@/styles/futuristic.css';
 import '@/styles/riteroute.css';
+import '@/styles/pages.css';
 
 const archivo = Archivo({
   subsets: ['latin'],
