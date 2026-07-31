@@ -40,6 +40,14 @@
     revealed.forEach(function (el) { el.classList.add("in"); });
   }
 
+  // Hero still — fade it in once decoded (the slow Ken Burns drift is pure CSS).
+  var heroImg = document.querySelector(".hero-v2__img");
+  if (heroImg) {
+    var revealHero = function () { heroImg.classList.add("is-loaded"); };
+    if (heroImg.complete) { revealHero(); }
+    else { heroImg.addEventListener("load", revealHero); }
+  }
+
   // Demo form handling — forms are mockups until wired to a backend (see README)
   document.querySelectorAll("form[data-demo]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
