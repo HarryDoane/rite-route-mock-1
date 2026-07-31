@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
+import Reveal from '@/components/Reveal';
 import { newsPage as page } from '@/lib/pages';
 
 export const metadata: Metadata = page.meta;
@@ -17,27 +18,27 @@ export default function NewsPage() {
       <section className="pg-section">
         <div className="pg-section__inner">
           <div className="pg-grid pg-grid--3">
-            {page.posts.map((post) => (
+            {page.posts.map((post, i) => (
               /* the homepage's ruled feature entry; no anchor because the full
                  posts haven't migrated — an honest entry beats a dead link */
-              <article className="rr-feature" key={post.title}>
+              <Reveal as="article" className="rr-feature" delay={(i % 3) * 70} key={post.title}>
                 <span className="rr-tag">{post.tag}</span>
                 <h3 className="rr-feature__title">{post.title}</h3>
                 <p className="rr-feature__excerpt">{post.excerpt}</p>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       <section className="pg-cta">
-        <div className="pg-cta__inner">
+        <Reveal className="pg-cta__inner">
           <h2>{page.cta.heading}</h2>
           <p>{page.cta.body}</p>
           <div className="pg-cta__actions">
             <Link className="pg-btn" href="/contact">Request a quote</Link>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );

@@ -7,9 +7,7 @@
  * Source of truth: `Website - Final.pdf` and riteroute.ca.
  */
 
-import type { IconName } from '@/components/icons';
-
-export type IconCard = { icon: IconName; title: string; body: string };
+export type Card = { title: string; body: string };
 export type ListItem = { lead: string; detail: string };
 
 export const shippersPage = {
@@ -32,34 +30,30 @@ export const shippersPage = {
     lede: 'Four things every Rite Route shipper gets on day one. No enterprise contract required.',
     cards: [
       {
-        icon: 'radar',
         title: 'Real-time visibility',
         body:
           'A complete visibility platform that tracks your shipments in real time across ' +
           '45,000+ connected fleets. Know where your freight is, always, without picking up the phone.',
       },
       {
-        icon: 'chip',
         title: 'End-to-end technology & AI',
         body:
           'Automation across the entire shipment lifecycle eliminates the human error behind most ' +
           'freight failures (missed pickups, wrong docs, silent delays) and raises your service level.',
       },
       {
-        icon: 'phone',
         title: 'A single point of contact, 24/7/365',
         body:
           'One dedicated person who knows your freight and is a phone call, text or email away, ' +
           'around the clock, every day of the year. The supply chain doesn’t sleep; neither do we.',
       },
       {
-        icon: 'pulse',
         title: 'Live market pricing',
         body:
           'Instant access to real-time rates built on up-to-the-minute market conditions. ' +
           'When the market moves in your favour, your rate does too.',
       },
-    ] satisfies IconCard[],
+    ] satisfies Card[],
   },
   oneStop: {
     eyebrow: 'North American trucking solutions',
@@ -105,7 +99,6 @@ export const carriersPage = {
     heading: 'What partnership means here',
     cards: [
       {
-        icon: 'partners',
         title: 'Partnership mindset',
         body:
           'Our carriers are trusted partners. No games. No BS. Just honest relationships built on ' +
@@ -113,7 +106,6 @@ export const carriersPage = {
           'right of first refusal on committed lanes.',
       },
       {
-        icon: 'payment',
         title: 'Fast, fair payment',
         body:
           '30-day payment terms with quick-pay options. If cash flow’s tight, we’ll work ' +
@@ -121,18 +113,16 @@ export const carriersPage = {
           'and cheaper.',
       },
       {
-        icon: 'clock',
         title: '24-7-365 access',
         body:
           'We never close. When issues arise, we jump in fast to keep your wheels turning. ' +
           'Nights, weekends, holidays: a real person answers.',
       },
       {
-        icon: 'checkCircle',
         title: 'Ease of doing business',
         body: 'Accurate updates. Honest answers. Industry pros who pick up the phone and keep their promises.',
       },
-    ] satisfies IconCard[],
+    ] satisfies Card[],
   },
   payment: {
     eyebrow: 'Get paid fast',
@@ -163,36 +153,34 @@ export const careersPage = {
     eyebrow: 'Our employee promise',
     heading: { pre: 'Job or', accent: 'career?' },
     lede:
-      'If you’re just looking for a job, keep scrolling. If you want a career in trucking, ' +
-      'a place to grow, learn and belong, you’re in the right spot.',
+      'We’re building careers, not filling seats. If you want to grow, learn and belong in the ' +
+      'supply chain industry, you’re in the right place.',
   },
   culture: {
-    eyebrow: 'You’ll love it here',
-    heading: 'Why people stay',
+    eyebrow: 'Why people stay',
+    heading: 'A workplace worth showing up for',
     cards: [
       {
-        icon: 'smile',
-        title: 'Fun, funky, no-BS',
+        title: 'A culture you’ll look forward to',
         body:
-          'An atmosphere you’ll actually look forward to. We work hard and we don’t take ' +
-          'ourselves too seriously.',
+          'A positive, energetic atmosphere where people enjoy the work and each other. ' +
+          'We take the work seriously, and ourselves a little less so.',
       },
       {
-        icon: 'team',
-        title: 'Sports-team mentality',
-        body: 'We win and lose together. No silos, no politics. One team, one score.',
+        title: 'One team',
+        body: 'We win and lose together. No silos, no politics — shared goals and shared credit.',
       },
       {
-        icon: 'heart',
         title: 'Family comes first',
-        body: 'Not lip service. We mean it. Your people come before our freight, every time.',
+        body: 'Not lip service. We mean it. Your family comes before our freight, every time.',
       },
       {
-        icon: 'benefits',
-        title: 'Best-in-class family benefits',
-        body: 'Premium coverage for you and yours, because careers are built on stable foundations.',
+        title: 'Comprehensive family benefits',
+        body:
+          'Premium health coverage for you and your family, because careers are built on ' +
+          'stable foundations.',
       },
-    ] satisfies IconCard[],
+    ] satisfies Card[],
   },
   growth: {
     eyebrow: 'No experience needed',
@@ -206,19 +194,19 @@ export const careersPage = {
     cards: [
       {
         tag: 'How we hire',
-        title: 'No résumés. No interviews. No games.',
+        title: 'A conversation, not an audition',
         body:
-          'If we think you’ve got the integrity, passion and work ethic we value, we’ll ' +
-          'invite you to hang out at our office. You’ll see how we work, and we’ll see how ' +
-          'you fit.',
-        body2: 'The goal isn’t to impress us. It’s to see if we like and trust each other.',
+          'We look for integrity, passion and work ethic first. If we see a fit, we’ll invite ' +
+          'you to spend time with the team at our office — you’ll see how we work, and ' +
+          'we’ll see where you’d thrive.',
+        body2: 'The goal isn’t a performance. It’s finding out whether we work well together.',
       },
       {
         tag: 'Where we work',
-        title: 'A funky, street-level office',
+        title: 'A welcoming, street-level office',
         body:
-          'One you’ll actually want to come to, in South Etobicoke, company-owned, steps from ' +
-          'the TTC and Long Branch GO Station.',
+          'A company-owned office in South Etobicoke, steps from the TTC and Long Branch ' +
+          'GO Station.',
       },
     ],
   },
@@ -226,24 +214,24 @@ export const careersPage = {
     eyebrow: 'Our team',
     heading: 'The people who pick up the phone',
     lede:
-      'Real photos of real staff coming here. No stock photography, ever. Each teammate gets a ' +
-      'headshot, a LinkedIn link, and answers to three funky questions.',
+      'Photos of our real team are on their way — no stock photography, ever. Each teammate ' +
+      'will have a headshot, a LinkedIn profile and a short introduction.',
     /** three reserved slots until the real headshots arrive — same honest-
      *  pending treatment as the homepage's empty case-study slot */
     placeholders: 3,
   },
   apply: {
-    eyebrow: 'Say hello',
-    heading: 'Think you’d fit right in?',
+    eyebrow: 'Get in touch',
+    heading: 'Think you’d be a good fit?',
     body:
-      'No résumé needed. Tell us who you are and what drives you. If we see the ' +
-      'integrity, passion and work ethic we value, we’ll invite you to come hang out at ' +
-      'the office.',
-    success: 'Thanks! We’ll be in touch. Maybe come hang out at the office soon!',
+      'No résumé required to start the conversation. Tell us who you are and what drives you, ' +
+      'and if we see the integrity, passion and work ethic we value, we’ll invite you in ' +
+      'to meet the team.',
+    success: 'Thank you — we’ve received your message and will be in touch soon.',
   },
   cta: {
     heading: 'When we grow, you grow.',
-    body: 'Simple as that. Come build a career with a crew that trains its own pros.',
+    body: 'Come build a career with a team that invests in developing its own supply chain professionals.',
   },
 } as const;
 

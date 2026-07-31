@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import DemoForm from '@/components/DemoForm';
-import Icon from '@/components/icons';
+import Reveal from '@/components/Reveal';
 import { contactPage as page } from '@/lib/pages';
 import { site } from '@/lib/content';
 
@@ -20,7 +20,8 @@ export default function ContactPage() {
       <section className="pg-section" id="form">
         <div className="pg-section__inner">
           <div className="pg-split">
-            <DemoForm submitLabel="Send Message" successMessage={page.form.success}>
+            <Reveal>
+              <DemoForm submitLabel="Send Message" successMessage={page.form.success}>
               <div className="pg-field">
                 <label htmlFor="f-name">Name <span className="req">*</span></label>
                 <input id="f-name" name="name" type="text" autoComplete="name" required />
@@ -68,24 +69,25 @@ export default function ContactPage() {
                   placeholder="Lanes, freight type, timelines: the more detail, the faster the quote."
                 />
               </div>
-            </DemoForm>
+              </DemoForm>
+            </Reveal>
 
-            <div>
+            <Reveal delay={90}>
               <ul className="pg-info">
                 <li>
-                  <strong><Icon name="phone" /> Phone</strong>
+                  <strong>Phone</strong>
                   <a href={site.phoneHref}>{site.phone}</a>
                 </li>
                 <li>
-                  <strong><Icon name="mail" /> Email</strong>
+                  <strong>Email</strong>
                   <a href={`mailto:${site.email}`}>{site.email}</a>
                 </li>
                 <li>
-                  <strong><Icon name="pin" /> Head office</strong>
+                  <strong>Head office</strong>
                   182 Browns Line<br />Etobicoke, ON M8W 3T3
                 </li>
                 <li>
-                  <strong><Icon name="globe" /> Coverage</strong>
+                  <strong>Coverage</strong>
                   Canada · USA · Mexico
                 </li>
               </ul>
@@ -99,7 +101,7 @@ export default function ContactPage() {
                   <Link href="/carriers"><strong>Become a Partner Carrier →</strong></Link>
                 </p>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

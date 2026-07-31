@@ -79,6 +79,19 @@
   margin-top: 1.9rem;
 }
 
+/* masthead copy rises on load — eyebrow, headline, lede, actions in turn.
+   Pure CSS: above the fold, so an observer would only add latency. */
+@media (prefers-reduced-motion: no-preference) {
+  .pg-hero__inner > * { animation: pgRise 0.65s var(--rr-ease-out) both; }
+  .pg-hero__inner > *:nth-child(2) { animation-delay: 80ms; }
+  .pg-hero__inner > *:nth-child(3) { animation-delay: 160ms; }
+  .pg-hero__inner > *:nth-child(4) { animation-delay: 240ms; }
+}
+@keyframes pgRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
 /* --------------------------------------------------------------------------
    Buttons — the header CTA's uppercase label style, freed from the header
    -------------------------------------------------------------------------- */
@@ -157,17 +170,6 @@
   border-radius: 3px;
   padding: clamp(1.35rem, 2.5vw, 1.75rem);
 }
-.pg-card__icon {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--rr-rule);
-  border-radius: 3px;
-  color: var(--rr-red);
-  margin-bottom: 1.1rem;
-}
-.pg-card__icon svg { width: 22px; height: 22px; }
 .pg-card h3 {
   font-family: var(--rr-display);
   font-weight: 640;
@@ -269,14 +271,14 @@
 .pg-form__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.15rem 1.25rem; }
 .pg-form__grid .full { grid-column: 1 / -1; }
 
+/* labels in the body face, sentence case — the mono register belongs to
+   telemetry (quote bar, journey markers), not to a person's name and email */
 .pg-field label {
   display: block;
-  font-family: var(--rr-data);
-  font-size: var(--fs-label-sm);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--rr-steel);
+  font-family: var(--rr-body);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--rr-ink);
   margin-bottom: 0.45rem;
 }
 .pg-field .req { color: var(--rr-red); }
@@ -316,12 +318,10 @@
 }
 .pg-pills label {
   margin: 0;
-  padding: 0.55rem 1rem;
-  font-family: var(--rr-data);
-  font-size: var(--fs-label);
+  padding: 0.55rem 1.1rem;
+  font-family: var(--rr-body);
+  font-size: var(--fs-caption);
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--rr-steel);
   cursor: pointer;
   transition: background var(--rr-press) ease, color var(--rr-press) ease;
@@ -331,11 +331,10 @@
 .pg-pills input:focus-visible + label { outline: 2px solid var(--rr-red); outline-offset: -2px; }
 
 .pg-form__success {
+  animation: pgRise 0.35s var(--rr-ease-out) both;
   margin: 0.9rem 0 0;
-  font-family: var(--rr-data);
-  font-size: var(--fs-label);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: var(--fs-caption);
+  font-weight: 600;
   color: var(--rr-red);
 }
 
@@ -345,9 +344,7 @@
 .pg-info { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--rr-ink); }
 .pg-info li { padding: 1.05rem 0; border-bottom: 1px solid var(--rr-rule); }
 .pg-info strong {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
+  display: block;
   font-family: var(--rr-data);
   font-size: var(--fs-label-sm);
   font-weight: 500;
@@ -356,7 +353,6 @@
   color: var(--rr-steel);
   margin-bottom: 0.35rem;
 }
-.pg-info strong svg { width: 14px; height: 14px; color: var(--rr-red); }
 .pg-info li,
 .pg-info a {
   font-size: var(--fs-body);
