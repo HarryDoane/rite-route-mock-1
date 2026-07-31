@@ -92,6 +92,9 @@
 /* the wordmark inherits --dark-text from the old dark header, which is
    near-white and disappeared here. Match the real logo: Rite in ink,
    Route in brand red. */
+/* RR roads monogram — a touch taller than the old single "R" so the trucks
+   and road lines stay legible; width follows its ~1.26:1 ratio. */
+.rr-header .brand .brand-mark { height: 44px; width: auto; }
 .rr-header .brand .wordmark b { color: var(--rr-ink); }
 .rr-header .brand .wordmark b span { color: var(--rr-red); }
 .rr-header .brand .wordmark small { color: var(--rr-steel); }
@@ -114,6 +117,23 @@
 }
 
 .hero-v2__media { position: absolute; inset: 0; z-index: 0; }
+/* Static hero still with a very slow, seamless Ken Burns drift. It stays
+   alive without the artefacts of slowed video, and yo-yos
+   (animation-direction: alternate) so there is never a reset jump. Sits below
+   the scrim (::after, z-index 2). Sizing/object-position come from the shared
+   .hero-v2__media img rule below. */
+.hero-v2__img {
+  z-index: 1;
+  transform: scale(1.04);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-v2__img { animation: heroDrift 52s ease-in-out infinite alternate; }
+}
+@keyframes heroDrift {
+  from { transform: scale(1.03) translate3d(0, 0, 0); }
+  to   { transform: scale(1.09) translate3d(-1.6%, -1.2%, 0); }
+}
 .hero-v2__media img {
   width: 100%;
   height: 100%;
@@ -136,6 +156,7 @@
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 2;
   background:
     linear-gradient(98deg, rgba(247, 246, 243, 0.9) 0%, rgba(247, 246, 243, 0.52) 30%, rgba(247, 246, 243, 0.06) 58%, rgba(247, 246, 243, 0) 78%),
     linear-gradient(to bottom, rgba(247, 246, 243, 0.4) 0%, transparent 18%),
@@ -979,4 +1000,80 @@
   .qb-mode:active,
   .qb-submit:active { transform: none; }
   .hero-v2__media img { transition: opacity 200ms linear; }
+}
+
+/* ==========================================================================
+   Dark cinematic hero  (.hero-v2--dark)
+   A night-highway light-trail photograph carries the brand's red/amber
+   route motif. The paper scrim is replaced with a deep charcoal one so the
+   copy flips to light; the white quote card is left untouched and now reads
+   as the single bright object on a dark stage. The section ends on a crisp
+   dark base that meets the light metrics strip below.
+   ========================================================================== */
+:root { --rr-night: #0a0e14; }
+
+.hero-v2--dark {
+  background: var(--rr-night);
+  color: #fff;
+}
+
+/* let the road + trails sit in the lower band, headline on the dark sky */
+.hero-v2--dark .hero-v2__media img { object-position: 50% 46%; }
+
+/* still poster: shown before the videos fade in, and the only thing visible
+   when the visitor has reduced motion. Painted under the video layers. */
+.hero-v2--dark .hero-v2__media {
+  background-image: url("/assets/hero-highway.jpg");
+  background-size: cover;
+  background-position: 50% 46%;
+  background-repeat: no-repeat;
+}
+
+/* three-layer scrim: a left wash for legibility, a top vignette to seat the
+   navbar, and a heavier base so the quote bar and links never fight the trails */
+.hero-v2--dark .hero-v2__media::after {
+  background:
+    linear-gradient(100deg,
+      rgba(10, 14, 20, 0.94) 0%,
+      rgba(10, 14, 20, 0.78) 24%,
+      rgba(10, 14, 20, 0.40) 50%,
+      rgba(10, 14, 20, 0.04) 74%,
+      rgba(10, 14, 20, 0) 88%),
+    linear-gradient(to bottom, rgba(10, 14, 20, 0.55) 0%, rgba(10, 14, 20, 0) 26%),
+    linear-gradient(to top, var(--rr-night) 0%, rgba(10, 14, 20, 0.55) 14%, rgba(10, 14, 20, 0) 40%);
+}
+
+.hero-v2--dark .hero-v2__eyebrow { color: #d6dbe2; }
+.hero-v2--dark h1 {
+  color: #fff;
+  /* a touch of lift so the display face separates from the busy trails */
+  text-shadow: 0 1px 30px rgba(10, 14, 20, 0.55);
+}
+.hero-v2--dark .hero-v2__lede { color: #c4cbd4; }
+
+.hero-v2--dark .hero-v2__paths a {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.26);
+}
+.hero-v2--dark .hero-v2__paths a:hover {
+  color: #fff;
+  border-bottom-color: var(--rr-red);
+}
+
+.hero-v2--dark .lane-line { color: #9aa3ad; }
+.hero-v2--dark .lane-line b { color: #fff; }
+
+/* mobile: the copy stacks over the full frame, so swap the light top-down
+   scrim for a dark one that keeps the whole column readable */
+@media (max-width: 940px) {
+  .hero-v2--dark .hero-v2__media img,
+  .hero-v2--dark .hero-v2__video { object-position: 62% 52%; }
+  .hero-v2--dark .hero-v2__media { background-position: 62% 52%; }
+  .hero-v2--dark .hero-v2__media::after {
+    background:
+      linear-gradient(to bottom,
+        rgba(10, 14, 20, 0.62) 0%,
+        rgba(10, 14, 20, 0.80) 46%,
+        var(--rr-night) 92%);
+  }
 }

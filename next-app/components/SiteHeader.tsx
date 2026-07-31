@@ -41,7 +41,7 @@ export default function SiteHeader() {
       <div className="container header-inner">
         <Link className="brand" href="/">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/favicon.png" alt="" />
+          <img className="brand-mark" src="/assets/rr-mark.png" alt="Rite Route" width={243} height={192} />
           <span className="wordmark">
             <b>Rite<span>Route</span></b>
             <small>Supply Chain Solutions</small>

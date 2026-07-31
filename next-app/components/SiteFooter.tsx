@@ -18,7 +18,7 @@ export default function SiteFooter() {
           <div>
             <Link className="brand" href="/">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/favicon.png" alt="" style={{ height: 36 }} />
+              <img src="/assets/rr-mark.png" alt="Rite Route" style={{ height: 36 }} />
               <span className="wordmark">
                 <b>Rite<span>Route</span></b>
                 <small>Supply Chain Solutions</small>

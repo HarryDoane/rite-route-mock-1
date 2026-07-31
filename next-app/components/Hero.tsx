@@ -33,25 +33,26 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero-v2">
+    <section className="hero-v2 hero-v2--dark">
       <div className="hero-v2__media" aria-hidden="true">
-        <picture>
-          <source srcSet="/assets/hero-yard.webp" type="image/webp" />
-          {/* eslint-disable-next-line @next/next/no-img-element -- plain img keeps
-              the DOM identical to the static build so the CSS needs no changes;
-              next/image wraps in a span and would need selector edits */}
-          <img
-            ref={imgRef}
-            src="/assets/hero-yard.jpg"
-            alt=""
-            width={2000}
-            height={1116}
-            decoding="async"
-            className={imgLoaded ? 'is-loaded' : undefined}
-            onLoad={() => setImgLoaded(true)}
-            onError={() => setImgLoaded(true)}
-          />
-        </picture>
+        {/* Static hero still with a very slow, seamless Ken Burns drift applied
+            in CSS (see .hero-v2__img). It never restarts and honours
+            prefers-reduced-motion. */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- plain img keeps
+            the DOM identical to the static build so the CSS needs no changes;
+            next/image wraps in a span and would need selector edits */}
+        <img
+          ref={imgRef}
+          src="/assets/hero-highway.jpg"
+          alt=""
+          width={2000}
+          height={1116}
+          fetchPriority="high"
+          decoding="async"
+          className={imgLoaded ? 'hero-v2__img is-loaded' : 'hero-v2__img'}
+          onLoad={() => setImgLoaded(true)}
+          onError={() => setImgLoaded(true)}
+        />
       </div>
 
       <div className="hero-v2__inner">
