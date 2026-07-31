@@ -274,7 +274,10 @@
   appearance: none;
   border: 0;
   background: transparent;
-  padding: 0.5rem 0.7rem;
+  /* tracked mono adds a trailing 0.1em after the last glyph, which pushed the
+     label off-centre in its chip — the extra left padding balances it */
+  padding: 0.5rem 0.85rem;
+  padding-left: calc(0.85rem + 0.1em);
   font-family: var(--rr-data);
   font-size: var(--fs-label-sm);
   font-weight: 600;
